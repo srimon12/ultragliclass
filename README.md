@@ -9,8 +9,8 @@
 This repository holds **everything needed to audit and reproduce v0.1**: the exact training code, the stage configs,
 the data-build recipes, the evaluation harness, and the result files every number below comes from.
 
-> **Status:** v0.1, pre-release. Weights are **not** published yet (no Hugging Face upload, no GitHub release).
-> Open decisions are marked **[REVIEW]** in [`MODEL_CARD.md`](MODEL_CARD.md) and [`docs/LAUNCH_CHECKLIST.md`](docs/LAUNCH_CHECKLIST.md).
+> **Weights:** [`Srimon12/ultragliclass-v0.1`](https://huggingface.co/Srimon12/ultragliclass-v0.1) on the Hugging Face Hub.
+> The Hub model card is [`MODEL_CARD.md`](MODEL_CARD.md). Read its license notice (CC-BY-SA caveat) before use.
 
 ## Results (v0.1, full test splits, same harness and GPU for every model)
 
@@ -44,7 +44,7 @@ uv sync                      # or: pip install -e .   (install a CPU or CUDA tor
 ```python
 from ultragliclass import load_pipeline, predict
 
-pipe = load_pipeline("path/to/final_model")   # [REVIEW] Hub id once published
+pipe = load_pipeline("Srimon12/ultragliclass-v0.1")   # or a local path
 text = "The invoice total does not match the purchase order and the vendor is not on the approved list."
 print(predict(pipe, text, ["approve", "reject", "escalate to finance"]))
 ```
@@ -52,7 +52,7 @@ print(predict(pipe, text, ["approve", "reject", "escalate to finance"]))
 Or from the shell: `ultragliclass-predict --model path/to/final_model --text "..." --labels approve reject "escalate to finance"`.
 
 `load_pipeline` sets what v0.1 was trained with: `add_prefix_space=False`, `max_length=8192`, up to 256 labels.
-(The saved config still says `max_num_classes: 50` / tokenizer `max_length: 1024`; see [REVIEW] in the card.)
+(The Hub release sets `max_num_classes: 256` and tokenizer `max_length` / `model_max_length` 8192; the raw Stage 3 training output still says 50 / 1024.)
 
 ## Reproduce the training (S1 → S3)
 
@@ -101,7 +101,7 @@ tests/               CPU tests for many-label expansion, length grouping, train/
 ## License and data caveats
 
 - **Code:** Apache-2.0 ([`LICENSE`](LICENSE), [`NOTICE`](NOTICE)). Training code builds on Knowledgator GLiClass (Apache-2.0).
-- **Weights (when released):** proposed Apache-2.0, **[REVIEW]** — pending the CC-BY-SA question below.
+- **Weights:** Apache-2.0, with the CC-BY-SA caveat below stated on the model card.
 - **CC-BY-SA caveat.** Stages 1–2 used Jev rows filtered to `license_use == "commercial"`; that bucket **still contains
   CC-BY-SA text**. Stage 3 removed share-alike/copyleft rows from its new data, but its replay rows and its starting
   weights come from Stage 2, so **v0.1 is not free of the CC-BY-SA caveat**. Whether weights inherit share-alike duties
@@ -115,4 +115,4 @@ Full dataset table with licences and transforms: [`docs/DATASETS.md`](docs/DATAS
 
 ## Citation
 
-See [`MODEL_CARD.md`](MODEL_CARD.md#citation) (BibTeX entries still need author lists completed — [UNVERIFIED]).
+See [`MODEL_CARD.md`](MODEL_CARD.md#citation).

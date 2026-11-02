@@ -42,3 +42,7 @@ code_bundle/
 .env
 .DS_Store
 .ipynb_checkpoints/
+
+# Hub upload pack: weights stay off git
+hub_publish/model.safetensors
+hub_publish/tokenizer.json
