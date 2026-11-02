@@ -37,7 +37,7 @@ Never more than 6.0 GPU-h per session (`TOTAL_MAX_HOURS`, `ARM_MAX_HOURS = 2.0` 
 | P4 (everything) | two sessions: `["E1","E1z","E2"]` then `["E3","C0"]` | ~8.5 total (4.7 + 3.8) |
 
 ## 3. Attach list and decisions
-1. **Dataset `srimondanguria/ultragliclass-code`, NEW VERSION (v4)**: build `python scripts/make_code_bundle.py /workspace/ultrabert/ultragliclass_code_v4` (done: `/workspace/ultrabert/ultragliclass_code_v4/` + `.zip`, ~2.3 MB; upload the directory as the dataset root).
+1. **Dataset `srimondanguria/ultragliclass-code`, NEW VERSION (v4)**: build `python scripts/make_code_bundle.py <build-box>/ultragliclass_code_v4` (done: `<build-box>/ultragliclass_code_v4/` + `.zip`, ~2.3 MB; upload the directory as the dataset root).
    It contains the new configs, `prepare_data.py` (new keys `answers_col`, `exclude_source_contains`, and a **guard that aborts if a LocalLLaMA/typed-decisions source uses the test split or a val_split**),
    `eval.py` (typed eval now also reports `accuracy_by_workflow`), `kaggle_stage2_ablation.ipynb`, `calib/stage2_pilot_val.jsonl`. The v3 code dataset does NOT have these.
 2. **Kernel output `srimondanguria/ultragliclass-s1`** (S1 final_model), exactly as for the pilot. Do not attach the pilot output (not needed; `INIT_MODEL="auto"` finds S1).

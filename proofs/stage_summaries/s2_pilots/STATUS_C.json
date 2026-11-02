@@ -1,0 +1,20 @@
+{
+  "state": "complete",
+  "global_step": 1500,
+  "max_steps": 1500,
+  "resumed_from": null,
+  "train_loss": 0.056227119535207745,
+  "session_seconds": 6026.1,
+  "last_checkpoint": "runs/stage2_pilot_C/checkpoint-1500",
+  "precision": "fp16",
+  "world_size": 2,
+  "final_model": "runs/stage2_pilot_C/final_model",
+  "final_eval": {
+    "eval_loss": 0.07777968794107437,
+    "eval_runtime": 18.4911,
+    "eval_samples_per_second": 100.048,
+    "eval_steps_per_second": 6.273,
+    "epoch": 0.9996667777407531,
+    "peak_mem_gb": 4.27
+  }
+}

@@ -27,7 +27,7 @@
 - Full-size CPU build of `configs/data_stage2_full.yaml` on the box (non-streaming, cached sources, ~9 min, ~4.7 GB RSS): before dedupe 1,732,370 rows (= Kaggle v2 exactly); dropped 865 (211 distinct val texts): gliclass-v2.0 758, gliclass-v3-logic 90 (30 texts x repeat 3), Jev 15, go_emotions 2. After: 1,731,505 rows (need 1,728,000, margin 3,505), procedural-style rows 90,923 (5.25 %, unchanged), typed TRAIN rows 1,500 + 1,500, dedicated procedural 0; the notebook's leak count reads **0**. 865 > 835 because it also removes ~30 rows matching the recipe's own carved val, which differs from the pilot val in 39 texts (34 logic, 5 procedural: the larger gliclass sample shifts the logic carve via the shared `seen` set); training uses the pilot val file. train.jsonl md5 on the box d82991a305052e585050954f1ac6778f (Kaggle may differ if a Hub dataset revision differs; the notebook records its own md5 in session 1).
 - Pilot/ablation overlap (box rebuilds of their train sets vs `calib/stage2_pilot_val.jsonl`): pilot 30 rows (26 distinct val texts), E1 33 (29), E1z 33 (29), E2 32 (28), all gliclass-v2.0 / logic. These notebooks had no leak assertion. ~1.6-1.8 % of val texts were seen in training under another label set: a small optimistic bias on their eval_loss, the same for every arm, so arm comparisons hold.
 - Tests: new `scripts/test_train_val_dedupe.py` ALL PASS; `scripts/test_stage2.py` ALL PASS; notebook CPU smoke (fresh session, mock mounts with code v7 + S1 output, smoke recipe, 12 steps) ran end to end: data asserts passed (leak 0), `complete`, final quick eval rc 0. Logs: `smoke_logs/v7/`.
-- `scripts/make_code_bundle.py` -> code dataset **v7** `/workspace/ultrabert/ultragliclass_code_v7/` (+ `.zip`).
+- `scripts/make_code_bundle.py` -> code dataset **v7** `<build-box>/ultragliclass_code_v7/` (+ `.zip`).
 
 ## 2026-10-24 (v3.4): full stage-2 run package, arm C, fast settings (prepared only; nothing run on Kaggle or pushed)
 
@@ -140,4 +140,4 @@ Decision (Srimon): run the 3 stage-2 pilots; DBpedia and Bitext are excluded (li
 - `train.py`: `UGC_DUMP_ORDER=<prefix>` logs the fetched row indices (debug hook for the same-order check; off by default).
 - `calib/stage1_val.jsonl` (the S1 val set, md5 cacbb981...) for the quick-eval temperature fit.
 - New scripts: `make_pilot_smoke_recipe.py`, `check_pilot_arms.py`, `estimate_pilot_cost.py`, `run_notebook_cpu.py`, `make_code_bundle.py`.
-- Smoke: see SMOKE_TEST.md v3.1. Bundle: `/workspace/ultrabert/ultragliclass_code_v3.zip` (not uploaded).
+- Smoke: see SMOKE_TEST.md v3.1. Bundle: `<build-box>/ultragliclass_code_v3.zip` (not uploaded).

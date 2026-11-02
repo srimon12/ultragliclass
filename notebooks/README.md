@@ -10,8 +10,27 @@ change the notebook's `python train.py` calls to `python scripts/train.py` after
 |---|---|---|
 | `kaggle_stage1.ipynb` | S0 smoke + S1 | `ultragliclass-s0a`, `-s0b`, `-s1` |
 | `kaggle_stage2_pilot.ipynb` | S2 pilots A/B/C | `ultragliclass-s2pilot` |
-| `kaggle_speedtest_fast.ipynb` | throughput test | `ultragliclass-speedtest` |
+| `kaggle_speedtest_fast.ipynb` | length-grouping speed test — **prepared, never run** | — (the speed test that ran is `as_pushed/ultragliclass-speedtest.ipynb`) |
 | `kaggle_stage2_ablation.ipynb` | S2 data ablations | `ultragliclass-s2ablation` |
 | `kaggle_stage2_full.ipynb` | S2 full (2 sessions) | `ultragliclass-s2full` |
 | `kaggle_stage3.ipynb` | S3 smoke + full (`MODE=smoke/full`) | `ultragliclass-s3smoke`, `-s3full` |
 | `kaggle_eval_readme.ipynb` | README benchmark | `ultragliclass-evalreadme` |
+
+## `as_pushed/` — the exact notebooks that ran
+
+The files in the table above are the builder templates. Some jobs were pushed with a few settings changed in the first
+code cell, so the template is not always the exact source. `as_pushed/` has the notebook file that was actually pushed to
+each Kaggle kernel, plus its `kernel-metadata.json` (inputs: the private `ultragliclass-code` dataset and earlier kernels'
+outputs). Outputs are empty; there are no credentials in them.
+
+| File | Differs from the template |
+|---|---|
+| `ultragliclass-s3full.ipynb` | `MODE = "full"` (template: `"smoke"`) |
+| `ultragliclass-s2ablation.ipynb` | `ARMS = ["E1", "E1z", "E2"]`, `SEMANTIC_DATA_APPROVED = True`, `TOTAL_MAX_HOURS = 5.0`, batch 4 × accum 8, no checkpointing |
+| `ultragliclass-speedtest.ipynb` | the T0–T3 speed test that ran (`configs/speedtest_T*.yaml`). It has no template in `notebooks/`; `kaggle_speedtest_fast.ipynb` was derived from it later |
+| `ultragliclass-s0a.ipynb`, `-s0b.ipynb` | Stage 0 smoke variants of `kaggle_stage1.ipynb` (s0b = the patched v2 that completed) |
+| others (`s1`, `s2pilot`, `s2full`, `s3smoke`, `evalreadme`) | same cell sources as the template |
+
+Notes: `ultragliclass-s2full.ipynb` is the last push (v4, session 2, resumes checkpoint-15910); session 1 (v3) used the same
+notebook with no previous output to resume. The `s2pilot` kernel-metadata file on the build machine had been overwritten by
+the s2full one, so it is not included.

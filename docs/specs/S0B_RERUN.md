@@ -5,7 +5,7 @@ session must end by itself with logs that show where.
 
 ## 0. Before the run (needs Srimon's OK: it is an upload)
 Re-upload the code dataset `srimondanguria/ultragliclass-code` as a **new version** from
-`/workspace/ultrabert/ultragliclass/`. The new code is in `train.py`, `ugc/trainer.py`, `scripts/dist_check.py`,
+`<dev-tree>/`. The new code is in `train.py`, `ugc/trainer.py`, `scripts/dist_check.py`,
 `scripts/build_notebook.py` and `kaggle_stage1.ipynb`. Exclude `runs/ data/ results/ smoke_logs/ __pycache__/`.
 
 ## 1. Notebook

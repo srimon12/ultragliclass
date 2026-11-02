@@ -1,0 +1,20 @@
+{
+  "state": "complete",
+  "global_step": 150,
+  "max_steps": 150,
+  "resumed_from": "runs/stage0_kaggle/checkpoint-75",
+  "train_loss": 0.11413676261901856,
+  "session_seconds": 258.6,
+  "last_checkpoint": "runs/stage0_kaggle/checkpoint-150",
+  "precision": "fp16",
+  "world_size": 2,
+  "final_model": "runs/stage0_kaggle/final_model",
+  "final_eval": {
+    "eval_loss": 0.13817466795444489,
+    "eval_runtime": 6.5236,
+    "eval_samples_per_second": 76.645,
+    "eval_steps_per_second": 4.905,
+    "epoch": 0.96,
+    "peak_mem_gb": 3.92
+  }
+}

@@ -10,7 +10,7 @@ readme = "README.md"
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 requires-python = ">=3.10"
-authors = [{ name = "Srimon Danguria" }]   # [REVIEW] author / org
+authors = [{ name = "Srimon Danguria" }]
 keywords = ["gliclass", "zero-shot-classification", "ultrabert", "long-context", "decision-model"]
 classifiers = ["Programming Language :: Python :: 3", "Topic :: Scientific/Engineering :: Artificial Intelligence"]
 # Pins = the versions every v0.1 training and README-eval run used (proofs/hf_readme_eval/env.json).

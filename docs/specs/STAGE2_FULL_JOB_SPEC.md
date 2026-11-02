@@ -37,7 +37,7 @@ The test split of LocalLLaMA/typed-decisions is never read (prepare_data.py abor
 - The 3,000 typed rows are 0.17 % of this mix, vs 3.1 % in E2, so E2's typed gain (0.594 vs E1 0.480) may not carry over. That is a risk, not a guarantee.
 
 ## 3. Attach list
-1. **Dataset `srimondanguria/ultragliclass-code`, NEW VERSION 7** = `/workspace/ultrabert/ultragliclass_code_v7/` (+ `.zip`). Upload the directory as the dataset root. v5 = ablation bundle; v6 adds the full configs, notebook and recipe; v7 = v6 + train/val text dedupe. Session 1 starts fresh: do NOT attach the failed v2 output (its `results/stage2_full_data_md5.json` belongs to the v6 data and would stop a later session on md5 mismatch; it has no `runs/` so `PREV_OUTPUT="auto"` ignores it anyway).
+1. **Dataset `srimondanguria/ultragliclass-code`, NEW VERSION 7** = `<build-box>/ultragliclass_code_v7/` (+ `.zip`). Upload the directory as the dataset root. v5 = ablation bundle; v6 adds the full configs, notebook and recipe; v7 = v6 + train/val text dedupe. Session 1 starts fresh: do NOT attach the failed v2 output (its `results/stage2_full_data_md5.json` belongs to the v6 data and would stop a later session on md5 mismatch; it has no `runs/` so `PREV_OUTPUT="auto"` ignores it anyway).
 2. **Kernel output `srimondanguria/ultragliclass-s1`** (S1 final_model), as for the pilot/ablation.
 3. **Session 2 (and any later session) only:** the previous version of THIS kernel's output (`.../ultragliclass-s2full` or whatever slug the Handler uses). `PREV_OUTPUT = "auto"` finds `runs/stage2_full_C/STATUS.json` under /kaggle/input and restores runs/, data/, results/ before training.
 Notebook: **`kaggle_stage2_full.ipynb`**, GPU **T4 x2**, Internet **on**, persistence off. No knob needs editing between sessions.

@@ -31,16 +31,16 @@ Set details:
 - massive and banking77 come from mteb parquet mirrors (en test 2,974; banking 3,076 vs the original 3,080).
 
 ## 2. Files (box)
-- Code bundle v9: `/workspace/ultrabert/ultragliclass_code_v9.zip` (directory `/workspace/ultrabert/ultragliclass_code_v9/`; `dataset-metadata.json` id `srimondanguria/ultragliclass-code`). New in v9:
+- Code bundle v9: `<build-box>/ultragliclass_code_v9.zip` (directory `<build-box>/ultragliclass_code_v9/`; `dataset-metadata.json` id `srimondanguria/ultragliclass-code`). New in v9:
   - `scripts/hf_readme_eval.py` (prep / worker / aggregate)
   - `scripts/build_hf_readme_eval_notebook.py`
   - `kaggle_eval_readme.ipynb`
   - `scripts/eval_long_jev.py` now accepts `--add_prefix_space` (default unchanged)
-- Kernel folder ready to push: `/workspace/kaggle/ultragliclass/evalreadme_kernel/` (`kernel-metadata.json` + `kaggle_eval_readme.ipynb`).
+- Kernel folder ready to push: `<artifacts>/evalreadme_kernel/` (`kernel-metadata.json` + `kaggle_eval_readme.ipynb`).
 
 ## 3. Handler steps
-1. Upload code **v9** as a new version of the private dataset `srimondanguria/ultragliclass-code` (from `/workspace/ultrabert/ultragliclass_code_v9/`). Wait until it is ready and confirm that `scripts/hf_readme_eval.py` is listed.
-2. Push the kernel **`srimondanguria/ultragliclass-evalreadme`** from `/workspace/kaggle/ultragliclass/evalreadme_kernel/`. Settings: private, **GPU T4 ×2**, **internet ON**. Attachments:
+1. Upload code **v9** as a new version of the private dataset `srimondanguria/ultragliclass-code` (from `<build-box>/ultragliclass_code_v9/`). Wait until it is ready and confirm that `scripts/hf_readme_eval.py` is listed.
+2. Push the kernel **`srimondanguria/ultragliclass-evalreadme`** from `<artifacts>/evalreadme_kernel/`. Settings: private, **GPU T4 ×2**, **internet ON**. Attachments:
    - dataset `srimondanguria/ultragliclass-code` (v9);
    - kernel output `srimondanguria/ultragliclass-s3full`, which holds `runs/stage3_full/final_model` = v0.1.
    - s2full is **not** needed.
@@ -49,7 +49,7 @@ Set details:
    - `knowledgator/gliclass-base-v3.0`
 4. Do not edit the knobs: `HARD_STOP_HOURS = 5.5`, `PERMUTATIONS = 3`, `SMOKE_ROWS = None`, `PEER_ADD_PREFIX_SPACE = True`.
 5. Watch the log lines `progress N/141 by tier {...}`, written every 5 minutes. The headline cells (tiers 0–2) should be done about 1.5–2 h in (UNVERIFIED).
-6. When it finishes, download the output to `/workspace/kaggle/ultragliclass/EvalReadme/` and report `results/hf_readme/TABLES.md` + `STATUS.json` + the hours used.
+6. When it finishes, download the output to `<artifacts>/EvalReadme/` and report `results/hf_readme/TABLES.md` + `STATUS.json` + the hours used.
 7. **Do not publish** anything: no HF push, no public kernel or dataset. Kaggle outputs stay private.
 
 Stop rules:

@@ -1,0 +1,162 @@
+{
+  "session_hours": 0.216,
+  "note": "all configs done",
+  "configs": [
+    {
+      "config": "T0_baseline",
+      "per_device_bs": 8,
+      "accum": 4,
+      "grad_ckpt": true,
+      "max_oom_skips": 0,
+      "t0_hours": 0.046,
+      "rc": 0,
+      "stalled": false,
+      "oom": false,
+      "state": "complete",
+      "global_step": 40,
+      "train_loss": 0.08109534829854965,
+      "session_seconds": 150.6,
+      "per_rank_torch": {
+        "0": {
+          "peak_alloc_gb": 3.92,
+          "peak_reserved_gb": 4.79,
+          "last_step": 40
+        },
+        "1": {
+          "peak_alloc_gb": 3.94,
+          "peak_reserved_gb": 4.12,
+          "last_step": 40
+        }
+      },
+      "nvidia_smi_peak_used_gb": {
+        "0": 5.02,
+        "1": 4.35
+      },
+      "sec_per_step_by_log_interval": [
+        3.499,
+        3.554,
+        3.708,
+        3.455
+      ],
+      "sec_per_step_steady_mean_last3": 3.572,
+      "wall_hours": 0.046
+    },
+    {
+      "config": "T2_nockpt_b4",
+      "per_device_bs": 4,
+      "accum": 8,
+      "grad_ckpt": false,
+      "max_oom_skips": 0,
+      "t0_hours": 0.092,
+      "rc": 0,
+      "stalled": false,
+      "oom": false,
+      "state": "complete",
+      "global_step": 40,
+      "train_loss": 0.09283182546496391,
+      "session_seconds": 103.0,
+      "per_rank_torch": {
+        "1": {
+          "peak_alloc_gb": 6.67,
+          "peak_reserved_gb": 7.28,
+          "last_step": 40
+        },
+        "0": {
+          "peak_alloc_gb": 6.66,
+          "peak_reserved_gb": 7.41,
+          "last_step": 40
+        }
+      },
+      "nvidia_smi_peak_used_gb": {
+        "0": 7.64,
+        "1": 7.51
+      },
+      "sec_per_step_by_log_interval": [
+        2.382,
+        2.561,
+        2.351,
+        2.3
+      ],
+      "sec_per_step_steady_mean_last3": 2.404,
+      "wall_hours": 0.033
+    },
+    {
+      "config": "T1_nockpt_b8",
+      "per_device_bs": 8,
+      "accum": 4,
+      "grad_ckpt": false,
+      "max_oom_skips": 0,
+      "t0_hours": 0.125,
+      "rc": 0,
+      "stalled": false,
+      "oom": false,
+      "state": "complete",
+      "global_step": 40,
+      "train_loss": 0.08113072663545609,
+      "session_seconds": 119.8,
+      "per_rank_torch": {
+        "0": {
+          "peak_alloc_gb": 10.08,
+          "peak_reserved_gb": 12.15,
+          "last_step": 40
+        },
+        "1": {
+          "peak_alloc_gb": 10.03,
+          "peak_reserved_gb": 11.99,
+          "last_step": 40
+        }
+      },
+      "nvidia_smi_peak_used_gb": {
+        "0": 12.39,
+        "1": 12.22
+      },
+      "sec_per_step_by_log_interval": [
+        2.924,
+        2.824,
+        2.798,
+        2.722
+      ],
+      "sec_per_step_steady_mean_last3": 2.781,
+      "wall_hours": 0.038
+    },
+    {
+      "config": "T3_ckpt_b16",
+      "per_device_bs": 16,
+      "accum": 2,
+      "grad_ckpt": true,
+      "max_oom_skips": 0,
+      "t0_hours": 0.164,
+      "rc": 0,
+      "stalled": false,
+      "oom": false,
+      "state": "complete",
+      "global_step": 40,
+      "train_loss": 0.07449477165937424,
+      "session_seconds": 171.4,
+      "per_rank_torch": {
+        "1": {
+          "peak_alloc_gb": 4.71,
+          "peak_reserved_gb": 5.99,
+          "last_step": 40
+        },
+        "0": {
+          "peak_alloc_gb": 4.7,
+          "peak_reserved_gb": 5.98,
+          "last_step": 40
+        }
+      },
+      "nvidia_smi_peak_used_gb": {
+        "0": 6.22,
+        "1": 6.22
+      },
+      "sec_per_step_by_log_interval": [
+        4.202,
+        4.012,
+        4.121,
+        4.051
+      ],
+      "sec_per_step_steady_mean_last3": 4.061,
+      "wall_hours": 0.052
+    }
+  ]
+}

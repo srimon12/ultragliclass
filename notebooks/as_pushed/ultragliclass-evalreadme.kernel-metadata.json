@@ -1,0 +1,16 @@
+{
+ "id": "srimondanguria/ultragliclass-evalreadme",
+ "title": "ultragliclass-evalreadme",
+ "code_file": "kaggle_eval_readme.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "machine_shape": "NvidiaTeslaT4",
+ "dataset_sources": ["srimondanguria/ultragliclass-code"],
+ "competition_sources": [],
+ "kernel_sources": ["srimondanguria/ultragliclass-s3full"],
+ "model_sources": []
+}

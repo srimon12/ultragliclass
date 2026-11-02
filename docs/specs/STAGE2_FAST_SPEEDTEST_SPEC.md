@@ -14,7 +14,7 @@ Both: arm-C data (`data/stage2_pilot`, prepared exactly as the pilot / earlier s
 The pilot's own arms A/B (`stage2_fast_A/B.yaml`) are not tested here: A has no expansion (lengths are exact, so grouping can only be better), B is C without pairs (less memory).
 
 ## 3. How to run
-Use `kaggle_speedtest_fast.ipynb` (built by `scripts/build_speedtest_fast_notebook.py` from the notebook that ran T0-T3; same pre-flight, watchdog, nvidia-smi sampler). GPU T4 x2, Internet on, attach: code dataset **new version** (needs `ugc/length_group.py`, the new configs; `python scripts/make_code_bundle.py /workspace/ultrabert/ultragliclass_code_v5` builds it, already built, **not uploaded**) + output of kernel `ultragliclass-s1`.
+Use `kaggle_speedtest_fast.ipynb` (built by `scripts/build_speedtest_fast_notebook.py` from the notebook that ran T0-T3; same pre-flight, watchdog, nvidia-smi sampler). GPU T4 x2, Internet on, attach: code dataset **new version** (needs `ugc/length_group.py`, the new configs; `python scripts/make_code_bundle.py <build-box>/ultragliclass_code_v5` builds it, already built, **not uploaded**) + output of kernel `ultragliclass-s1`.
 Handler steps (each only after Srimon approves): (1) upload the bundle as a new version of `srimondanguria/ultragliclass-code`; (2) push/run the notebook; (3) fetch `results/speedtest_summary.json` and the logs.
 
 ## 4. What the notebook records (per config)

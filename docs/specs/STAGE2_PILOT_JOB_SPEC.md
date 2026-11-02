@@ -20,8 +20,8 @@ Estimates: `scripts/estimate_pilot_cost.py`, calibrated on the **measured S1 3.0
 
 ## 2. Attach list (Kaggle notebook inputs)
 1. **Dataset `srimondanguria/ultragliclass-code`, NEW VERSION (v3).** The existing version is stage-1 code and does NOT contain the pilot configs (the notebook refuses it).
-   Build: `python scripts/make_code_bundle.py` -> `/workspace/ultrabert/ultragliclass_code_v3/` (upload this directory as the dataset root; it already has `dataset-metadata.json`)
-   and the same files as `/workspace/ultrabert/ultragliclass_code_v3.zip` (about 1.5 MB, 71 files).
+   Build: `python scripts/make_code_bundle.py` -> `<build-box>/ultragliclass_code_v3/` (upload this directory as the dataset root; it already has `dataset-metadata.json`)
+   and the same files as `<build-box>/ultragliclass_code_v3.zip` (about 1.5 MB, 71 files).
    File list = everything in `ultragliclass/` EXCEPT `runs/ data/ results/ smoke_logs/ __pycache__` (and `*.pyc`, `*.zip`): `train.py eval.py prepare_data.py requirements.txt`, `ugc/*.py`,
    `configs/*.yaml` (incl. `data_stage2_pilot.yaml`, `stage2_pilot_{A,B,C}.yaml`), `scripts/*`, `calib/stage1_val.jsonl` (4,300 rows, the S1 val set), `kaggle_stage1.ipynb`, `kaggle_stage2_pilot.ipynb`, docs and `notes/`.
 2. **Kernel output `srimondanguria/ultragliclass-s1`** (the finished S1 run; it contains `ultragliclass/runs/stage1_ultrabert150m/final_model`, 590 MB). It also holds an old copy of the stage-1 code; the notebook ignores it.

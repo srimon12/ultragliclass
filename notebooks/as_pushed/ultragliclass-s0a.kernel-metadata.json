@@ -1,0 +1,18 @@
+{
+ "id": "srimondanguria/ultragliclass-s0a",
+ "title": "ultragliclass-s0a",
+ "code_file": "ultragliclass_s0a.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "machine_shape": "NvidiaTeslaT4",
+ "dataset_sources": [
+  "srimondanguria/ultragliclass-code"
+ ],
+ "competition_sources": [],
+ "kernel_sources": [],
+ "model_sources": []
+}

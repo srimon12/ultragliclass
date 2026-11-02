@@ -1,0 +1,11 @@
+{
+  "state": "needs_resume",
+  "global_step": 75,
+  "max_steps": 150,
+  "resumed_from": null,
+  "train_loss": 0.15901269992192588,
+  "session_seconds": 256.6,
+  "last_checkpoint": "runs/stage0_kaggle/checkpoint-75",
+  "precision": "fp16",
+  "world_size": 2
+}

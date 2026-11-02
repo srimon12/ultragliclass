@@ -1,0 +1,16 @@
+{
+ "id": "srimondanguria/ultragliclass-s3smoke",
+ "title": "ultragliclass-s3smoke",
+ "code_file": "ultragliclass_s3smoke.ipynb",
+ "language": "python",
+ "kernel_type": "notebook",
+ "is_private": true,
+ "enable_gpu": true,
+ "enable_tpu": false,
+ "enable_internet": true,
+ "machine_shape": "NvidiaTeslaT4",
+ "dataset_sources": ["srimondanguria/ultragliclass-code"],
+ "competition_sources": [],
+ "kernel_sources": ["srimondanguria/ultragliclass-s2full"],
+ "model_sources": []
+}

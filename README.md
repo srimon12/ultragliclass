@@ -6,6 +6,11 @@
 **8,192-token inputs and up to 256 labels in one forward pass**. You give it a text and a list of label strings
 (plus an optional instruction) and it scores every label at once.
 
+Author: **Srimon Danguria**.
+
+**Goal of v0.1:** beat `knowledgator/gliclass-modern-base-v3.0` (same encoder size) with the official GLiClass recipe
+on an encoder that has a much longer native context (UltraBERT, 32K positions), and show the gain on long inputs.
+
 This repository holds **everything needed to audit and reproduce v0.1**: the exact training code, the stage configs,
 the data-build recipes, the evaluation harness, and the result files every number below comes from.
 
@@ -33,6 +38,36 @@ training); zero-shot for the peers. Δ vs modern-base +0.230 [+0.167, +0.300], M
 Honest caveats, all detailed in the card: base-v3 is better on sst5, 20 Newsgroups, spam, cap_sotu and snips; CLINC-150
 (0.636) is **below the pre-registered Stage 3 bar of 0.650** and was accepted for v0.1; typed-decision results are partly
 in-domain. Per-set tables, CIs and significance tests: [`MODEL_CARD.md`](MODEL_CARD.md), index in [`docs/PROOFS.md`](docs/PROOFS.md).
+
+## How v0.1 was built (map of this repo)
+
+Each stage starts from the previous stage's final weights. Full detail, gates and caveats: [`docs/TRAINING_RECIPE.md`](docs/TRAINING_RECIPE.md).
+
+| Stage | What it adds | Train rows / steps | Train config → data recipe | Notebook as pushed | Proofs | Result (≤500-row quick eval) |
+|---|---|---|---|---|---|---|
+| S0 | smoke + resume test (not in the weights) | 10k / 150 | [`stage0_kaggle`](configs/stage0_kaggle.yaml) → [`data_stage0_kaggle`](configs/data_stage0_kaggle.yaml) | [s0a](notebooks/as_pushed/ultragliclass-s0a.ipynb), [s0b](notebooks/as_pushed/ultragliclass-s0b.ipynb) | [`s0/`](proofs/stage_summaries/s0/) | resume works on 2-GPU DDP |
+| S1 | GLiClass on UltraBERT, 1,024 tokens, ≤ 50 labels | 410,422 / 6,413 | [`stage1_pilot`](configs/stage1_pilot.yaml) → [`data_stage1`](configs/data_stage1.yaml) | [s1](notebooks/as_pushed/ultragliclass-s1.ipynb) | [`s1/`](proofs/stage_summaries/s1/) | suite 0.586, CLINC 0.398 |
+| S2 pilots / ablations | choose arm (A/B/C) and data mix (E1/E1z/E2) | 1,500 steps each | [`stage2_pilot_{A,B,C}`](configs/), [`stage2_abl_*`](configs/) | [s2pilot](notebooks/as_pushed/ultragliclass-s2pilot.ipynb), [s2ablation](notebooks/as_pushed/ultragliclass-s2ablation.ipynb) | [`S2_PILOT_INVESTIGATION.md`](docs/history/S2_PILOT_INVESTIGATION.md) | arm C + E2 mix chosen |
+| S2 | 20–150 labels with hard negatives, label-order consistency loss | 1,731,505 / 27,000 (2 sessions) | [`stage2_full_C`](configs/stage2_full_C.yaml) → [`data_stage2_full`](configs/data_stage2_full.yaml) | [s2full](notebooks/as_pushed/ultragliclass-s2full.ipynb) | [`s2/`](proofs/stage_summaries/s2/) | suite 0.683, CLINC 0.650 |
+| **S3 = v0.1** | 8,192 tokens, ≤ 256 labels; long Jev (no share-alike rows) + S2 replay | 61,184 / 956 | [`stage3_longctx`](configs/stage3_longctx.yaml) → [`data_stage3`](configs/data_stage3.yaml) | [s3smoke](notebooks/as_pushed/ultragliclass-s3smoke.ipynb), [s3full](notebooks/as_pushed/ultragliclass-s3full.ipynb) | [`s3/`](proofs/stage_summaries/s3/) | suite 0.689, CLINC 0.640, long-Jev 0.552 → 0.664 |
+| Eval | full test splits vs two peers | — | [`scripts/hf_readme_eval.py`](scripts/hf_readme_eval.py) | [evalreadme](notebooks/as_pushed/ultragliclass-evalreadme.ipynb) | [`hf_readme_eval/`](proofs/hf_readme_eval/) | table above |
+
+Lineage compute: 5.71 + 18.20 + 7.27 = **31.18 Kaggle GPU-h** on 2× T4, fp16 (41.69 h including pilots, smoke tests and the benchmark).
+Software: `torch 2.11.0+cu128`, `transformers 5.20.2`, `gliclass 0.1.21`.
+Which code version ran each stage: [`docs/PROVENANCE.md`](docs/PROVENANCE.md). Every claim → file: [`docs/PROOFS.md`](docs/PROOFS.md).
+
+**Stage 3 did not pass all of its own pre-registered bars.** CLINC-150 came in at 0.640 against a bar of 0.650; the plan said
+that keeps Stage 2 as the release. We released Stage 3 anyway for its long-context gain. Typed-decision accuracy also fell
+(0.616 → 0.574) and we have not found out why.
+
+## What was not done
+
+- No same-recipe ModernBERT control, so the gain over gliclass-modern-base-v3.0 cannot be split between encoder and data.
+- Nothing trained or tested beyond 8,192 tokens.
+- One seed per stage; no variance estimate.
+- No license-clean retrain (see the CC-BY-SA caveat below).
+
+List with details: [`docs/TRAINING_RECIPE.md` §7](docs/TRAINING_RECIPE.md#7-what-was-not-done).
 
 ## Quick start (inference)
 
@@ -71,7 +106,7 @@ python scripts/train.py --config configs/stage3_longctx.yaml                # ->
 
 Run every command from the repo root. Multi-GPU: `torchrun --nproc_per_node 2 scripts/train.py --config ...`.
 Training resumes from the newest checkpoint automatically; override any value with `--set a.b=value`.
-v0.1 itself was trained on Kaggle (2× T4, fp16) through the notebooks in [`notebooks/`](notebooks/).
+v0.1 itself was trained on Kaggle (2× T4, fp16); the exact notebooks that were pushed are in [`notebooks/as_pushed/`](notebooks/as_pushed/).
 
 ## Evaluate
 
@@ -92,9 +127,9 @@ scripts/kaggle/      builders for the Kaggle notebooks + CPU dry-run harnesses
 configs/             every stage and data recipe used (see configs/README.md for the v0.1 lineage)
 calib/               eval/calibration slice manifests (the jsonl files are rebuilt, not committed)
 data/                build instructions only; no dataset rows are committed
-notebooks/           the exact Kaggle notebooks that ran each stage (no outputs)
+notebooks/           Kaggle notebook templates; as_pushed/ = the exact notebook + kernel metadata each job ran (no outputs)
 proofs/              result files behind every claim + code snapshots of earlier stages
-docs/                TRAINING_RECIPE, DATASETS, PLAN, REFERENCES, PROOFS, PROVENANCE, LAUNCH_CHECKLIST, specs/, history/
+docs/                TRAINING_RECIPE (start here), PROOFS, PROVENANCE, DATASETS, PLAN, REFERENCES, LAUNCH_CHECKLIST, specs/ (pre-run plans), history/ (dev notes)
 tests/               CPU tests for many-label expansion, length grouping, train/val dedupe
 ```
 

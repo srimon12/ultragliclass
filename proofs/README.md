@@ -7,8 +7,10 @@ file backs which claim: [`docs/PROOFS.md`](../docs/PROOFS.md).
   Erratum: `TABLES.md` footnote 3 says "test split"; the long-Jev slice is test 177 + validation 254 rows
   (`calib/jev_long_test_manifest.json`).
 - `stage_summaries/s1|s2|s3/` — data manifests, data md5 checks, run `STATUS.json`, quick-eval and long-Jev results per stage.
+- `stage_summaries/s0/` — Stage 0 smoke: the two `STATUS.json` files showing a stop at step 75 and a resume to 150.
+- `stage_summaries/s2_pilots/`, `s2_ablation/`, `s2_speedtest/` — the runs that chose the Stage 2 recipe (arm C, E2 data mix, batch 4 × 8).
 - `stage_summaries/gpu_hours_log.tsv` — every Kaggle GPU session with hours and outcome.
 - `stage_summaries/baselines/` — training-time CPU baseline of the ModernBERT peer.
 - `code_snapshots/` — files of older code versions that differ from this repo (S1 code; S2's v7 `prepare_data.py`; S3's v8 `eval_long_jev.py`).
 
-Not included (size or dataset text): raw logits, gold files, checkpoints, weights. See `docs/PROOFS.md` for their box paths.
+Not included (size or dataset text): raw logits, gold files, checkpoints, weights. See `docs/PROOFS.md` for where they are kept.

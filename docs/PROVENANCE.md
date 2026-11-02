@@ -38,3 +38,27 @@ What this means:
 - `tests/test_train_val_dedupe.py`: one `sys.path` line changed to find `scripts/prepare_data.py`.
 - Added: `src/ultragliclass/` (inference wrapper + CLI), `pyproject.toml`, docs, proofs.
 - The Kaggle notebooks in `notebooks/` are unchanged and expect the original flat bundle layout (see `notebooks/README.md`).
+
+## Configs: byte-identical to the runs
+
+Each lineage config in `configs/` was compared (byte for byte) with the copy inside the Kaggle output of the run that used it:
+
+| config | S1 output | S2 full output | S3 full output |
+|---|---|---|---|
+| `base.yaml`, `stage1_pilot.yaml`, `data_stage1.yaml` | same | same | same |
+| `stage2_pilot_A/B/C.yaml`, `stage2_full_C.yaml`, `data_stage2_full.yaml` | — | same | same |
+| `stage3_longctx.yaml`, `data_stage3.yaml` | — | — | same |
+
+(The S1 and S2 outputs also contain earlier drafts of the Stage 3 configs; those were not used.)
+
+## Notebooks
+
+`notebooks/as_pushed/` holds the notebook file pushed to each Kaggle kernel, with its kernel metadata. Where these
+differ from the templates in `notebooks/` is listed in `notebooks/README.md`.
+
+## Path placeholders in the docs
+
+The planning and history notes were written on the build machine. Absolute paths there were replaced with placeholders:
+`<artifacts>` = downloaded Kaggle kernel outputs, `<dev-tree>` = the original flat working copy of this code,
+`<build-box>` = other scratch folders. Python files and configs were not edited, so a few of them still contain
+absolute paths as defaults (see `LAUNCH_CHECKLIST.md`).

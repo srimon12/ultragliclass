@@ -19,7 +19,7 @@ Srimon decided (25 Oct): **smoke and proper data prep on the CURRENT account onl
 
 **Init:** `runs/stage2_full_C/final_model` (615 MB) from kernel output **`srimondanguria/ultragliclass-s2full` version 4**.
 * The notebook auto-globs `/kaggle/input/**/runs/stage2_full_C/final_model` and copies it to `/tmp/ugc_init_model`.
-* Box copy: `/workspace/kaggle/ultragliclass/S2full/session2/output/ultragliclass/runs/stage2_full_C/final_model`.
+* Box copy: `<artifacts>/S2full/session2/output/ultragliclass/runs/stage2_full_C/final_model`.
 
 ## 2. Data mix (`configs/data_stage3.yaml`, seed 44; box dry run 25 Oct, 171 s)
 
@@ -124,7 +124,7 @@ s/step basis (UNVERIFIED): per GPU per step about 11.1 long rows × 3,904 tokens
 
 ## 8. Files the Handler needs
 **Code dataset `srimondanguria/ultragliclass-code`, NEW VERSION 8.**
-* Build it with `python scripts/make_code_bundle.py /workspace/ultrabert/ultragliclass_code_v8`, run from the project root. That gives the directory plus a `.zip`. It contains everything except runs/, data/, results/, smoke_logs/. It is not built yet; the Handler or parent builds it when the upload is approved.
+* Build it with `python scripts/make_code_bundle.py <build-box>/ultragliclass_code_v8`, run from the project root. That gives the directory plus a `.zip`. It contains everything except runs/, data/, results/, smoke_logs/. It is not built yet; the Handler or parent builds it when the upload is approved.
 * New or changed files in v8 compared with v7:
   * `kaggle_stage3.ipynb`
   * `configs/stage3_longctx.yaml`, `configs/data_stage3.yaml`

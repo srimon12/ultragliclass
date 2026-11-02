@@ -4,8 +4,8 @@ Written 1 Nov 2026, 23:30 IST. **Status: PARTIAL.** Local CPU evals were stopped
 Every number comes from a box JSON or a live page fetched on 1 Nov 2026. Anything else is marked UNVERIFIED. Nothing was published and no money was spent.
 
 ## Sources
-- S3 (v0.1): `/workspace/kaggle/ultragliclass/S3full/final/ultragliclass/results/stage3_final_quick.json`, `stage3_final_longjev_8192.json`, `stage3_longjev_compare.json`
-- S2: `/workspace/kaggle/ultragliclass/S2full/session2/output/ultragliclass/results/stage2_full_C_final_quick.json`, plus S3 `stage3_baseline_s2_longjev_8192.json`
+- S3 (v0.1): `<artifacts>/S3full/final/ultragliclass/results/stage3_final_quick.json`, `stage3_final_longjev_8192.json`, `stage3_longjev_compare.json`
+- S2: `<artifacts>/S2full/session2/output/ultragliclass/results/stage2_full_C_final_quick.json`, plus S3 `stage3_baseline_s2_longjev_8192.json`
 - Our ModernBERT re-run (suite): `results/stage1_fair_modernbert_v3_cpu.json`
 - **New today**, ModernBERT long-Jev run: `results/compare/longjev_modernbase_v3_8192_cpu.json`, with paired compares in `results/compare/longjev_compare_modernbase_vs_s2.json` and `..._vs_s3.json`. Log: `logs_compare/longjev_modernbase_v3_8192.log`
 - Published numbers:

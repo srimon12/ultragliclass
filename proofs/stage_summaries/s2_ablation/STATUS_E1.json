@@ -1,0 +1,21 @@
+{
+  "state": "complete",
+  "global_step": 1500,
+  "max_steps": 1500,
+  "resumed_from": null,
+  "train_loss": 0.058150771995385486,
+  "session_seconds": 3598.7,
+  "last_checkpoint": "runs/stage2_abl_E1/checkpoint-1500",
+  "precision": "fp16",
+  "world_size": 2,
+  "final_model": "runs/stage2_abl_E1/final_model",
+  "final_eval": {
+    "eval_loss": 0.09028055518865585,
+    "eval_runtime": 18.6135,
+    "eval_samples_per_second": 99.39,
+    "eval_steps_per_second": 12.464,
+    "epoch": 0.9996667777407531,
+    "peak_mem_gb": 9.28,
+    "peak_reserved_gb": 12.14
+  }
+}

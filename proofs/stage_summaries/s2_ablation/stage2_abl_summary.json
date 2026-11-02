@@ -1,0 +1,170 @@
+{
+  "session_hours": 3.35,
+  "arms": [
+    {
+      "arm": "E1",
+      "out_dir": "runs/stage2_abl_E1",
+      "state": "complete",
+      "t0_hours": 0.02,
+      "oom": false,
+      "status": {
+        "state": "complete",
+        "global_step": 1500,
+        "max_steps": 1500,
+        "resumed_from": null,
+        "train_loss": 0.058150771995385486,
+        "session_seconds": 3598.7,
+        "last_checkpoint": "runs/stage2_abl_E1/checkpoint-1500",
+        "precision": "fp16",
+        "world_size": 2,
+        "final_model": "runs/stage2_abl_E1/final_model",
+        "final_eval": {
+          "eval_loss": 0.09028055518865585,
+          "eval_runtime": 18.6135,
+          "eval_samples_per_second": 99.39,
+          "eval_steps_per_second": 12.464,
+          "epoch": 0.9996667777407531,
+          "peak_mem_gb": 9.28,
+          "peak_reserved_gb": 12.14
+        }
+      },
+      "eval_rc": 0,
+      "eval": {
+        "avg_macro_f1": 0.662056427094097,
+        "global_T": 1.8081196640536858,
+        "typed_acc": 0.4795,
+        "typed_by_type": {
+          "choice": 0.5116666666666667,
+          "noul": 0.5533333333333333,
+          "score": 0.4
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.454,
+          "customer_service": 0.544,
+          "invoice_processing": 0.37,
+          "security_incidents": 0.55
+        },
+        "procedural_share": 0.0492,
+        "flip_many_label": {
+          "banking77": 0.258,
+          "clinc150": 0.262,
+          "massive": 0.298,
+          "SetFit/20_newsgroups": 0.288
+        }
+      },
+      "wall_hours": 1.147
+    },
+    {
+      "arm": "E1z",
+      "out_dir": "runs/stage2_abl_E1z",
+      "state": "complete",
+      "t0_hours": 1.167,
+      "oom": false,
+      "status": {
+        "state": "complete",
+        "global_step": 1500,
+        "max_steps": 1500,
+        "resumed_from": null,
+        "train_loss": 0.05940469365318616,
+        "session_seconds": 3361.2,
+        "last_checkpoint": "runs/stage2_abl_E1z/checkpoint-1500",
+        "precision": "fp16",
+        "world_size": 2,
+        "final_model": "runs/stage2_abl_E1z/final_model",
+        "final_eval": {
+          "eval_loss": 0.09252563118934631,
+          "eval_runtime": 18.1887,
+          "eval_samples_per_second": 101.711,
+          "eval_steps_per_second": 12.755,
+          "epoch": 0.9996667777407531,
+          "peak_mem_gb": 8.82,
+          "peak_reserved_gb": 10.31
+        }
+      },
+      "eval_rc": 0,
+      "eval": {
+        "avg_macro_f1": 0.6610290633450815,
+        "global_T": 1.8214736541847598,
+        "typed_acc": 0.472,
+        "typed_by_type": {
+          "choice": 0.39666666666666667,
+          "noul": 0.6583333333333333,
+          "score": 0.38875
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.39,
+          "customer_service": 0.498,
+          "invoice_processing": 0.488,
+          "security_incidents": 0.512
+        },
+        "procedural_share": 0.0,
+        "flip_many_label": {
+          "banking77": 0.258,
+          "clinc150": 0.254,
+          "massive": 0.28,
+          "SetFit/20_newsgroups": 0.286
+        }
+      },
+      "wall_hours": 1.059
+    },
+    {
+      "arm": "E2",
+      "out_dir": "runs/stage2_abl_E2",
+      "state": "complete",
+      "t0_hours": 2.226,
+      "oom": false,
+      "status": {
+        "state": "complete",
+        "global_step": 1500,
+        "max_steps": 1500,
+        "resumed_from": null,
+        "train_loss": 0.062341766943534216,
+        "session_seconds": 3592.1,
+        "last_checkpoint": "runs/stage2_abl_E2/checkpoint-1500",
+        "precision": "fp16",
+        "world_size": 2,
+        "final_model": "runs/stage2_abl_E2/final_model",
+        "final_eval": {
+          "eval_loss": 0.09181736409664154,
+          "eval_runtime": 18.513,
+          "eval_samples_per_second": 99.93,
+          "eval_steps_per_second": 12.532,
+          "epoch": 0.9996667777407531,
+          "peak_mem_gb": 9.28,
+          "peak_reserved_gb": 12.0
+        }
+      },
+      "eval_rc": 0,
+      "eval": {
+        "avg_macro_f1": 0.652707316060566,
+        "global_T": 1.813714552204083,
+        "typed_acc": 0.594,
+        "typed_by_type": {
+          "choice": 0.5666666666666667,
+          "noul": 0.6666666666666666,
+          "score": 0.56
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.642,
+          "customer_service": 0.71,
+          "invoice_processing": 0.51,
+          "security_incidents": 0.514
+        },
+        "procedural_share": 0.0492,
+        "flip_many_label": {
+          "banking77": 0.24,
+          "clinc150": 0.254,
+          "massive": 0.314,
+          "SetFit/20_newsgroups": 0.192
+        }
+      },
+      "wall_hours": 1.124
+    }
+  ],
+  "init_model_src": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s1/ultragliclass/runs/stage1_ultrabert150m/final_model",
+  "procedural_share": {
+    "E1": 0.0492,
+    "E1z": 0.0,
+    "E2": 0.0492
+  }
+}
