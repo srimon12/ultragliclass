@@ -1,0 +1,99 @@
+{
+  "recipe": "/kaggle/working/ultragliclass/configs/data_stage3.yaml",
+  "name": "stage3",
+  "seed": 44,
+  "streaming": false,
+  "train_rows": 61184,
+  "val_rows": 300,
+  "sources": {
+    "tasksource/tasksource-jev-typed-decisions:full": {
+      "train_unique": 21958,
+      "repeat": 1,
+      "train_rows": 21184,
+      "val_rows": 300,
+      "license": "other (filtered to license_use == commercial, share-alike/copyleft rows removed)",
+      "kinds": {
+        "jev-score": 1463,
+        "jev-choice": 18310,
+        "jev-noul": 2185
+      },
+      "license_note": "per-row license_use == commercial; cc-by-sa / gpl / odbl rows (~1.8K) excluded so stage 3 adds no share-alike text",
+      "train_rows_before_dedupe": 21958,
+      "dropped_val_text": 774
+    },
+    "replay/stage2_full:default": {
+      "train_unique": 40000,
+      "repeat": 1,
+      "train_rows": 40000,
+      "val_rows": 0,
+      "license": "as stage 2 (see STAGE2_FULL_JOB_SPEC.md s.2)",
+      "kinds": {
+        "jev-choice": 7840,
+        "gliclass": 25309,
+        "taxonomy": 4423,
+        "jev-noul": 1453,
+        "jev-score": 912,
+        "s1-choice": 26,
+        "s1-score": 31,
+        "s1-noul": 6
+      },
+      "license_note": "sample of the stage-2 mix; inherits its caveats (Jev CC-BY-SA rows, typed TRAIN rows = partly in-domain)"
+    }
+  },
+  "kinds": {
+    "gliclass": 25309,
+    "jev-choice": 25525,
+    "taxonomy": 4423,
+    "jev-noul": 3540,
+    "jev-score": 2324,
+    "s1-noul": 6,
+    "s1-choice": 26,
+    "s1-score": 31
+  },
+  "labels_per_row": {
+    "max": 128,
+    "mean": 6.45
+  },
+  "taxonomy": {
+    "pools_copied_from": "data/stage2_full/label_pools.json"
+  },
+  "disabled_sources": [
+    {
+      "id": "tasksource/procedural-typed-decisions",
+      "config": "needle_retrieval",
+      "reason": "Jev long already carries 1.6K needle_retrieval + 5.1K record_eligibility rows (procedural share ~11 %)"
+    },
+    {
+      "id": "tasksource/procedural-typed-decisions",
+      "config": "all",
+      "reason": "stage-2 E1: dedicated procedural rows hurt typed choice; dropped as in stage 2 full"
+    }
+  ],
+  "train_val_dedupe": {
+    "val_texts": 646,
+    "val_files": [
+      "calib/jev_long_test.jsonl"
+    ],
+    "train_rows_before": 61958,
+    "train_rows_after": 61184,
+    "dropped": 774,
+    "distinct_val_texts_hit": 140,
+    "dropped_by_train_source": {
+      "tasksource/tasksource-jev-typed-decisions:full": 774
+    },
+    "dropped_by_val_source": {
+      "tasksource/tasksource-jev-typed-decisions:cuad/answerability": 397,
+      "tasksource/tasksource-jev-typed-decisions:procedural-typed-decisions/record_eligibility": 337,
+      "tasksource/tasksource-jev-typed-decisions:quality": 19,
+      "tasksource/tasksource-jev-typed-decisions:procedural-typed-decisions/needle_retrieval": 9,
+      "tasksource/tasksource-jev-typed-decisions:lex_glue/scotus": 4,
+      "tasksource/tasksource-jev-typed-decisions:tab/identifier": 2,
+      "tasksource/tasksource-jev-typed-decisions:wikimedqa/medwiki": 2,
+      "tasksource/tasksource-jev-typed-decisions:hyperpartisan_news": 1,
+      "tasksource/tasksource-jev-typed-decisions:maud/bringdown-timing": 1,
+      "tasksource/tasksource-jev-typed-decisions:HelpSteer/complexity": 1,
+      "tasksource/tasksource-jev-typed-decisions:HelpSteer3/feedback": 1
+    }
+  },
+  "seconds": 110.1
+}

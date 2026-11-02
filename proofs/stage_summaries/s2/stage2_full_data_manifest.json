@@ -1,0 +1,222 @@
+{
+  "recipe": "/kaggle/working/ultragliclass/configs/data_stage2_full.yaml",
+  "name": "stage2_full",
+  "seed": 43,
+  "streaming": false,
+  "train_rows": 1731505,
+  "val_rows": 1850,
+  "sources": {
+    "knowledgator/gliclass-v2.0:default": {
+      "train_unique": 1090000,
+      "repeat": 1,
+      "train_rows": 1089242,
+      "val_rows": 400,
+      "license": "apache-2.0",
+      "kinds": {
+        "gliclass": 1090000
+      },
+      "license_note": "Hub tag apache-2.0; upstream sources undocumented (DATASETS.md caveat)",
+      "train_rows_before_dedupe": 1090000,
+      "dropped_val_text": 758
+    },
+    "knowledgator/gliclass-v3-logic-dataset:default": {
+      "train_unique": 4327,
+      "repeat": 3,
+      "train_rows": 12891,
+      "val_rows": 100,
+      "license": "apache-2.0",
+      "kinds": {
+        "gliclass": 4327
+      },
+      "train_rows_before_dedupe": 12981,
+      "dropped_val_text": 90
+    },
+    "tasksource/tasksource-jev-typed-decisions:default": {
+      "train_unique": 437000,
+      "repeat": 1,
+      "train_rows": 436985,
+      "val_rows": 300,
+      "license": "other (filtered to license_use == commercial)",
+      "kinds": {
+        "jev-choice": 337167,
+        "jev-noul": 61497,
+        "jev-score": 38336
+      },
+      "license_note": "per-row license_use == commercial only; that bucket includes CC-BY-SA text (legal check before release, DATASETS.md)",
+      "train_rows_before_dedupe": 437000,
+      "dropped_val_text": 15
+    },
+    "tasksource/procedural-typed-decisions:all": {
+      "train_unique": 0,
+      "repeat": 1,
+      "train_rows": 0,
+      "val_rows": 300,
+      "license": "apache-2.0",
+      "kinds": {}
+    },
+    "LocalLLaMA/typed-decisions:customer_service": {
+      "train_unique": 1500,
+      "repeat": 1,
+      "train_rows": 1500,
+      "val_rows": 0,
+      "license": "apache-2.0",
+      "kinds": {
+        "s1-choice": 600,
+        "s1-score": 600,
+        "s1-noul": 300
+      },
+      "license_note": "dataset card: apache-2.0, synthetic; TRAIN split only (separate seed from test, per card). Same 4 workflows and the same 57 option strings as the eval (test) split -> in-schema data; test split is never read (prepare_data.py guard)."
+    },
+    "LocalLLaMA/typed-decisions:agent_trace_observability": {
+      "train_unique": 1500,
+      "repeat": 1,
+      "train_rows": 1500,
+      "val_rows": 0,
+      "license": "apache-2.0",
+      "kinds": {
+        "s1-choice": 600,
+        "s1-noul": 300,
+        "s1-score": 600
+      },
+      "license_note": "dataset card: apache-2.0, synthetic; TRAIN split only (separate seed from test, per card). Same 4 workflows and the same 57 option strings as the eval (test) split -> in-schema data; test split is never read (prepare_data.py guard)."
+    },
+    "DeepPavlov/hwu64:default": {
+      "train_unique": 8951,
+      "repeat": 3,
+      "train_rows": 26853,
+      "val_rows": 150,
+      "license": "cc-by-4.0",
+      "kinds": {
+        "taxonomy": 8951
+      },
+      "license_note": "verified in github.com/xliuhw/NLU-Evaluation-Data README",
+      "pool": "intents",
+      "eval_overlap": "none of the 14 eval sets (clinc150/banking77/massive/snips are different corpora)"
+    },
+    "coastalcph/lex_glue:ledgar": {
+      "train_unique": 59930,
+      "repeat": 1,
+      "train_rows": 59930,
+      "val_rows": 150,
+      "license": "cc-by-4.0",
+      "kinds": {
+        "taxonomy": 59930
+      },
+      "license_note": "LEDGAR (Tuggener et al. 2020) via LexGLUE; CC-BY-4.0 per HF card",
+      "pool": "legal-clauses",
+      "eval_overlap": "none"
+    },
+    "zeroshot/twitter-financial-news-topic:default": {
+      "train_unique": 16990,
+      "repeat": 2,
+      "train_rows": 33980,
+      "val_rows": 150,
+      "license": "mit",
+      "kinds": {
+        "taxonomy": 16990
+      },
+      "license_note": "MIT per HF card; tweets (platform terms apply; open decision D3)",
+      "pool": "fin-topics",
+      "eval_overlap": "none (different task than financial_phrasebank)"
+    },
+    "google-research-datasets/go_emotions:simplified": {
+      "train_unique": 40000,
+      "repeat": 1,
+      "train_rows": 39998,
+      "val_rows": 150,
+      "license": "apache-2.0",
+      "kinds": {
+        "taxonomy": 40000
+      },
+      "license_note": "Apache-2.0 per HF card; Reddit comments (platform terms, open decision D3)",
+      "pool": "emotions",
+      "eval_overlap": "overlaps the emotion eval set in task type only",
+      "train_rows_before_dedupe": 40000,
+      "dropped_val_text": 2
+    },
+    "zeroshot/twitter-financial-news-sentiment:default": {
+      "train_unique": 9542,
+      "repeat": 3,
+      "train_rows": 28626,
+      "val_rows": 150,
+      "license": "mit",
+      "kinds": {
+        "taxonomy": 9542
+      },
+      "license_note": "MIT per HF card; tweets (platform terms, open decision D3)",
+      "pool": null,
+      "eval_overlap": "none; financial_phrasebank is CC-BY-NC-SA-3.0 and is NOT used for training"
+    }
+  },
+  "kinds": {
+    "jev-choice": 337154,
+    "gliclass": 1102133,
+    "jev-score": 38335,
+    "taxonomy": 189387,
+    "jev-noul": 61496,
+    "s1-choice": 1200,
+    "s1-noul": 600,
+    "s1-score": 1200
+  },
+  "labels_per_row": {
+    "max": 50,
+    "mean": 6.74
+  },
+  "taxonomy": {
+    "pool_sizes": {
+      "intents": 64,
+      "legal-clauses": 100,
+      "fin-topics": 20,
+      "emotions": 28,
+      "glic-v2": 20000
+    },
+    "val_rows_statically_expanded": 310
+  },
+  "disabled_sources": [
+    {
+      "id": "DeveloperOats/DBPedia_Classes",
+      "config": null,
+      "reason": "D2: excluded by Srimon 23 Oct (CC0 card, CC-BY-SA-3.0 Wikipedia upstream)"
+    },
+    {
+      "id": "Bitext/Bitext-customer-support-llm-chatbot-training-dataset",
+      "config": null,
+      "reason": "D2: excluded by Srimon 23 Oct (CDLA-Sharing-1.0)"
+    },
+    {
+      "id": "PolyAI/banking77",
+      "config": null,
+      "reason": "eval set (D1)"
+    },
+    {
+      "id": "clinc/clinc_oos",
+      "config": "plus",
+      "reason": "eval set (D1)"
+    }
+  ],
+  "train_val_dedupe": {
+    "val_texts": 1679,
+    "val_files": [
+      "calib/stage2_pilot_val.jsonl"
+    ],
+    "train_rows_before": 1732370,
+    "train_rows_after": 1731505,
+    "dropped": 865,
+    "distinct_val_texts_hit": 211,
+    "dropped_by_train_source": {
+      "knowledgator/gliclass-v2.0:default": 758,
+      "knowledgator/gliclass-v3-logic-dataset:default": 90,
+      "tasksource/tasksource-jev-typed-decisions:default": 15,
+      "google-research-datasets/go_emotions:simplified": 2
+    },
+    "dropped_by_val_source": {
+      "knowledgator/gliclass-v2.0": 652,
+      "knowledgator/gliclass-v3-logic-dataset": 208,
+      "google-research-datasets/go_emotions": 2,
+      "tasksource/tasksource-jev-typed-decisions:jigsaw_toxicity": 1,
+      "DeepPavlov/hwu64": 1,
+      "tasksource/tasksource-jev-typed-decisions:acceptability-prediction/binary_votes": 1
+    }
+  },
+  "seconds": 331.3
+}

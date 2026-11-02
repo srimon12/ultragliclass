@@ -1,0 +1,11 @@
+# Tiny smoke-test mix (use with --streaming: no full downloads).
+name: stage0
+out_dir: data/stage0
+seed: 42
+max_options: 50
+max_chars: 2000
+sources:
+  - {id: knowledgator/gliclass-v2.0, format: gliclass, split: train, n_train: 120, n_val: 16, license: apache-2.0, max_scan: 5000}
+  - {id: knowledgator/gliclass-v3-logic-dataset, format: gliclass, split: train, n_train: 40, n_val: 8, license: apache-2.0}
+  - {id: tasksource/tasksource-jev-typed-decisions, config: default, format: jev, split: train, val_split: validation,
+     n_train: 80, n_val: 8, license_use: [commercial], max_state_chars: 2000, license: "other (per-row license_use)", max_scan: 20000}

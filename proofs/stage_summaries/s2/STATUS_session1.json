@@ -1,0 +1,11 @@
+{
+  "state": "needs_resume",
+  "global_step": 15910,
+  "max_steps": 27000,
+  "resumed_from": null,
+  "train_loss": 0.05243262413381069,
+  "session_seconds": 37731.0,
+  "last_checkpoint": "runs/stage2_full_C/checkpoint-15910",
+  "precision": "fp16",
+  "world_size": 2
+}

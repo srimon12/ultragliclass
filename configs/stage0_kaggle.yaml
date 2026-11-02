@@ -1,0 +1,16 @@
+# Stage 0 on Kaggle (T4x2): real batch shape and length, ~1 GPU-hour max. Measures sec/step and peak memory,
+# checks fp16 stability, DDP and resume. Run 1: EXTRA_SET ["train.time_budget_hours=0.2"] (stops mid-way);
+# run 2 (same or next session): no override -> must resume and reach STATUS complete.
+base: stage1_pilot.yaml
+data:
+  train_files: [data/stage0k/train.jsonl]
+  val_files: [data/stage0k/val.jsonl]
+  max_eval_samples: 500
+train:
+  output_dir: runs/stage0_kaggle
+  num_epochs: null
+  max_steps: 150
+  save_steps: 50
+  eval_steps: 50
+  logging_steps: 10
+  time_budget_hours: 1.0

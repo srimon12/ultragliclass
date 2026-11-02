@@ -1,0 +1,16 @@
+UltraGliClass
+Copyright 2026 Srimon Danguria   [REVIEW: author / organisation name]
+
+This product includes software derived from GLiClass (https://github.com/Knowledgator/GLiClass),
+Copyright Knowledgator, licensed under the Apache License, Version 2.0. The training entrypoint
+(scripts/train.py) and the strict training step (src/ugc/trainer.py) are adapted from GLiClass's train.py
+and Trainer; model code is used from the `gliclass` package (0.1.21).
+
+The released model weights are fine-tuned from dmis-lab/UltraBERT-150M (Apache-2.0 per its Hugging Face card,
+checked 1 Nov 2026).
+
+DATA NOTICE: This repository contains no dataset rows. The v0.1 weights were trained on third-party datasets under
+their own licences (see docs/DATASETS.md), including rows of tasksource/tasksource-jev-typed-decisions tagged
+CC-BY-SA in Stages 1-2 and CC-BY-4.0 datasets (HWU64, LEDGAR) that require attribution. The Apache-2.0 licence of
+this code does not relicense any dataset, and whether share-alike terms reach the trained weights is an open
+legal question [REVIEW]. Bitext and DBpedia (share-alike) were not used.

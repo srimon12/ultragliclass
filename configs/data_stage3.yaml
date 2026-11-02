@@ -1,0 +1,36 @@
+# Stage 3 long-context mix (v2, 25 Oct 2026; replaces the 22 Oct draft). See STAGE3_PLAN.md / STAGE3_JOB_SPEC.md.
+# Measured on the box (25 Oct, full parquet scan of tasksource-jev-typed-decisions `full`): 36,430 of 2,550,012 train rows
+# have a state >= 6,000 chars (1 in 70, not 1 in 215 as the 20-row smoke sample suggested); 24,857 of them are
+# license_use == commercial, 24,843 convert (<= 256 options). Long states: mean ~3.9K tokens, p90 ~7.2K, 1.5 % > 8,192.
+# * Jev long (commercial, NO share-alike/copyleft rows): all, 300 carved as val (train rows sharing a val state are dropped).
+# * Replay: a seeded 40,000-row sample of the stage-2 FULL train mix (data/stage2_full/train.jsonl = the S2 kernel output),
+#   so replay keeps S2's exact distribution (gliclass-v2.0, logic, Jev <= 4K, HWU64, LEDGAR, fin tweets, go_emotions, and the
+#   3,000 LocalLLaMA typed TRAIN rows' share) and their `pool` keys for many-label expansion (pools copied from S2).
+# * No dedicated procedural source: Jev long already carries ~6.7K procedural-style rows (record_eligibility 5.1K,
+#   needle_retrieval 1.6K); stage-2 ablation E1 showed a large procedural share hurts typed "choice" (STAGE2_PLAN.md).
+# * Eval guard: the long-Jev eval slice (Jev `full` test + validation, states >= 6,000 chars) is never trained on: the
+#   train split is disjoint by construction (0 shared states / groups, checked 25 Oct) and dedupe_val_files re-checks it.
+name: stage3
+out_dir: data/stage3
+seed: 44
+max_options: 256
+max_chars: 30000         # ~7.5K tokens at ~4 chars/token; max_length 8192 (1.5 % of long rows get tail-truncated)
+max_length: 8192
+forbid_ids: [banking77, clinc, massive, snips, financial_phrasebank, sst5, sst2, SetFit/, imdb, 20_newsgroups, enron_spam,
+             ag_news, dair-ai/emotion, cap_sotu, rotten_tomatoes]
+pools_file_from: data/stage2_full/label_pools.json
+sources:
+  - {id: tasksource/tasksource-jev-typed-decisions, config: full, format: jev, split: train,
+     n_train: all, n_val: 300, license_use: [commercial], min_state_chars: 6000,
+     exclude_license_contains: ["-sa", "by-sa", "gpl", "odbl"],
+     license: "other (filtered to license_use == commercial, share-alike/copyleft rows removed)",
+     license_note: "per-row license_use == commercial; cc-by-sa / gpl / odbl rows (~1.8K) excluded so stage 3 adds no share-alike text"}
+  - {id: replay/stage2_full, format: jsonl, path: data/stage2_full/train.jsonl, n_train: 40000,
+     license: "as stage 2 (see STAGE2_FULL_JOB_SPEC.md s.2)",
+     license_note: "sample of the stage-2 mix; inherits its caveats (Jev CC-BY-SA rows, typed TRAIN rows = partly in-domain)"}
+  - {id: tasksource/procedural-typed-decisions, config: needle_retrieval, format: system_one, enabled: false,
+     disabled_reason: "Jev long already carries 1.6K needle_retrieval + 5.1K record_eligibility rows (procedural share ~11 %)"}
+  - {id: tasksource/procedural-typed-decisions, config: all, format: system_one, enabled: false,
+     disabled_reason: "stage-2 E1: dedicated procedural rows hurt typed choice; dropped as in stage 2 full"}
+dedupe_train_vs_val: true
+dedupe_val_files: [calib/jev_long_test.jsonl]

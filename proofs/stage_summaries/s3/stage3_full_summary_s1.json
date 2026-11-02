@@ -1,0 +1,135 @@
+{
+  "mode": "full",
+  "session": 1,
+  "session_hours": 6.102,
+  "arms": [
+    {
+      "arm": "s3",
+      "mode": "full",
+      "out_dir": "runs/stage3_full",
+      "state": "complete",
+      "t0_hours": 0.026,
+      "start_step": 150,
+      "baseline_longjev": {
+        "note": "present"
+      },
+      "oom": false,
+      "status": {
+        "state": "complete",
+        "global_step": 956,
+        "max_steps": 956,
+        "resumed_from": "runs/stage3_full/checkpoint-150",
+        "train_loss": 0.09333101913295963,
+        "session_seconds": 21164.8,
+        "last_checkpoint": "runs/stage3_full/checkpoint-956",
+        "precision": "fp16",
+        "world_size": 2,
+        "final_model": "runs/stage3_full/final_model",
+        "final_eval": {
+          "eval_loss": 0.10704179108142853,
+          "eval_runtime": 96.219,
+          "eval_samples_per_second": 22.345,
+          "eval_steps_per_second": 11.172,
+          "epoch": 1.0,
+          "peak_mem_gb": 5.18,
+          "peak_reserved_gb": 5.47
+        }
+      },
+      "end_step": 956,
+      "speed_mem": {
+        "status": "complete",
+        "step": 956,
+        "heartbeat": {
+          "time": "2026-11-01 16:07:25",
+          "global_step": 956,
+          "logs": {
+            "eval_loss": 0.10704179108142853,
+            "eval_runtime": 96.219,
+            "eval_samples_per_second": 22.345,
+            "eval_steps_per_second": 11.172,
+            "epoch": 1.0,
+            "peak_mem_gb": 5.18,
+            "peak_reserved_gb": 5.47
+          }
+        },
+        "metric_lines": [
+          "[ugc 16:01:31 rank1/2] mem step=950 peak_alloc_gb=5.19 peak_reserved_gb=5.47[ugc 16:01:31 rank0/2] mem step=950 peak_alloc_gb=5.18 peak_reserved_gb=5.47",
+          "{'loss': '0.08217', 'grad_norm': '116', 'learning_rate': '2.265e-07', 'cons_loss': '0.04409', 'pairs_since_last_log': 28, 'epoch': '0.9937', 'sec_per_step': '24', 'eta_hours': '0.04', 'peak_mem_gb': '5.18', 'peak_reserved_gb': '5.47'}",
+          "[ugc 16:05:45 rank1/2] mem step=956 peak_alloc_gb=5.19 peak_reserved_gb=5.47",
+          "[ugc 16:05:45 rank0/2] mem step=956 peak_alloc_gb=5.18 peak_reserved_gb=5.47",
+          "{'eval_loss': '0.107', 'eval_runtime': '96.21', 'eval_samples_per_second': '22.35', 'eval_steps_per_second': '11.17', 'epoch': '1', 'sec_per_step': '42.34', 'eta_hours': '0', 'peak_mem_gb': '5.18', 'peak_reserved_gb': '5.47'}",
+          "[ugc 16:05:48 rank0/2] mem step=956 peak_alloc_gb=5.18 peak_reserved_gb=5.47",
+          "[ugc 16:05:48 rank1/2] mem step=956 peak_alloc_gb=5.19 peak_reserved_gb=5.47",
+          "{'train_runtime': '2.115e+04', 'train_samples_per_second': '2.439', 'train_steps_per_second': '0.038', 'train_loss': '0.09333', 'epoch': '1', 'peak_mem_gb': '5.18', 'peak_reserved_gb': '5.47'}",
+          "[ugc 16:07:25 rank1/2] mem step=956 peak_alloc_gb=5.19 peak_reserved_gb=5.47",
+          "[ugc 16:07:25 rank0/2] mem step=956 peak_alloc_gb=5.18 peak_reserved_gb=5.47",
+          "{'eval_loss': '0.107', 'eval_runtime': '96.22', 'eval_samples_per_second': '22.34', 'eval_steps_per_second': '11.17', 'epoch': '1', 'peak_mem_gb': '5.18', 'peak_reserved_gb': '5.47'}",
+          "[ugc 16:07:25] STATUS {\"state\": \"complete\", \"global_step\": 956, \"max_steps\": 956, \"resumed_from\": \"runs/stage3_full/checkpoint-150\", \"train_loss\": 0.09333101913295963, \"session_seconds\": 21164.8, \"last_checkpoint\": \"runs/stage3_full/checkpoint-956\", \"precision\": \"fp16\", \"world_size\": 2, \"final_model"
+        ],
+        "oom": false,
+        "small_ctx_retry": false
+      },
+      "eval": {
+        "eval_rc": 0,
+        "avg_macro_f1": 0.689235868039581,
+        "global_T": 1.8109844095753127,
+        "typed_acc": 0.574,
+        "typed_by_type": {
+          "choice": 0.61,
+          "noul": 0.6,
+          "score": 0.5275
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.612,
+          "customer_service": 0.71,
+          "invoice_processing": 0.39,
+          "security_incidents": 0.584
+        },
+        "flip_many_label": {
+          "banking77": 0.266,
+          "clinc150": 0.204,
+          "massive": 0.102,
+          "SetFit/20_newsgroups": 0.168
+        },
+        "NOT_zero_shot": [
+          "massive (HWU64 shares 56/59 intents)",
+          "financial_phrasebank (fin-news sentiment, same 3 labels)",
+          "typed-decisions customer_service + agent_trace_observability (trained on their TRAIN split)"
+        ]
+      },
+      "longjev": {
+        "rc": 0,
+        "acc": 0.6635730858468677,
+        "ci95": [
+          0.6141145930155358,
+          0.7133190253444044
+        ],
+        "n": 431,
+        "truncated_frac": 0.05568445475638051,
+        "seconds": 145.1
+      },
+      "longjev_compare": {
+        "paired_n": 431,
+        "base_acc": 0.5522041763341067,
+        "cand_acc": 0.6635730858468677,
+        "delta": 0.11136890951276102,
+        "delta_ci95_cluster": [
+          0.06807511737089202,
+          0.1569081626985596
+        ],
+        "mcnemar_exact_p": 1.9409574271727468e-07,
+        "wins": 67,
+        "losses": 19,
+        "bar": "+0.03 accuracy",
+        "bar_point_estimate_met": true,
+        "bar_ci_lower_above_zero": true
+      },
+      "wall_hours": 6.076
+    }
+  ],
+  "init_model_src": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s2full/ultragliclass/runs/stage2_full_C/final_model",
+  "prev_output": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s3smoke/ultragliclass",
+  "s2_data": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s2full/ultragliclass/data/stage2_full",
+  "data_md5": "d35eb55c3fc957d1c951aa6ab57c1028",
+  "partly_in_domain": true
+}

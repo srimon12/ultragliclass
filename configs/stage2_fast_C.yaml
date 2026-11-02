@@ -1,0 +1,14 @@
+# FAST variant of stage-2 pilot arm C: same data / init / seed / LR / schedule / effective batch (64 rows) / max_steps as stage2_pilot_C,
+# but per-device batch 4 x accum 8 (x 2 GPUs), gradient checkpointing OFF and length-grouped batching ON (ugc/length_group.py).
+# Expected ~2.4-3x faster per step (estimate; see STAGE2_FAST_SPEEDTEST_SPEC.md). NOT yet run anywhere; needs Srimon's approval before any Kaggle use.
+# Not bit-identical to the pilots: same rows per epoch, but micro-batch composition (and so per-step row sets) differ; loss weighting is
+# kept equal by data.length_group.loss_norm (see notes/LENGTH_GROUP.md).
+# Run with PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True (variable shapes -> fragmentation).
+base: stage2_pilot_C.yaml
+data:
+  length_group: {enabled: true, mega_batch_mult: 50, loss_norm: true}
+train:
+  output_dir: runs/stage2_fast_C
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 8                        # 4 x 8 x 2 GPUs = 64 rows per step (unchanged)
+  gradient_checkpointing: false

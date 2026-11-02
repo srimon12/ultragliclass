@@ -1,0 +1,11 @@
+# Stage-2 ABLATION arm E1z = pilot arm C config (E1 and also minus the procedural-style rows inside Jev (0 % procedural)).
+# Everything but the data files and output_dir is inherited from stage2_pilot_C.yaml (many_label on, consistency on, seed 42, 1,500 steps,
+# S1 init). Data recipe: configs/data_stage2_abl_E1z.yaml.
+base: stage2_pilot_C.yaml
+data:
+  train_files: [data/stage2_abl_E1z/train.jsonl]
+  val_files: [calib/stage2_pilot_val.jsonl]
+  many_label:
+    pools_file: data/stage2_abl_E1z/label_pools.json
+train:
+  output_dir: runs/stage2_abl_E1z

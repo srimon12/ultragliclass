@@ -1,0 +1,13 @@
+# THROUGHPUT/MEMORY/LOSS PROBE ONLY (not a quality run). Proposed 24 Oct 2026, NOT run; needs Srimon's approval before any Kaggle use.
+# Arm C data, b4 x accum 8 x 2 GPUs, ckpt off, nogroup batches. 50 steps from the S1 checkpoint; no save/eval.
+base: stage2_fast_C_nogroup.yaml
+data:
+  max_eval_samples: 64                                  # tiny final eval only (exercises the eval path; no quality claim)
+train:
+  output_dir: runs/speedtest_fast_C_nogroup
+  max_steps: 50
+  save_steps: 100000
+  eval_steps: 100000
+  save_total_limit: 1
+  logging_steps: 5
+  time_budget_hours: 0.12

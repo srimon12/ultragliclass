@@ -1,0 +1,27 @@
+# CPU smoke test of the stage-2 code paths (many-label expansion, paired views, consistency loss) on data/stage2_smoke.
+base: base.yaml
+model:
+  max_num_classes: 150
+data:
+  train_files: [data/stage2_smoke/train.jsonl]
+  val_files: [data/stage2_smoke/val.jsonl]
+  max_length: 512
+  max_eval_samples: 24
+  augmentation: {enabled: true}
+  many_label:
+    enabled: true
+    pools_file: data/stage2_smoke/label_pools.json
+    params: {expand_prob: 0.9, k_min: 20, k_max: 150, hard_frac: 0.5, dup_sim: 0.8, text_keep_tokens: 128, pair_min_labels: 8,
+             pool_overrides: {glic-v2: {expand_prob: 0.1, k_min: 12, k_max: 40, hard_frac: 0.2, dup_sim: 0.6}}}
+  consistency: {enabled: true, pair_prob: 0.5, weight: 0.1, kind: skl}
+train:
+  output_dir: runs/stage2_smoke
+  max_steps: 6
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  save_steps: 6
+  eval_steps: 6
+  logging_steps: 1
+  num_workers: 2
+  gradient_checkpointing: false
+  time_budget_hours: 1.0

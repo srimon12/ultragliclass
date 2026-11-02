@@ -1,0 +1,31 @@
+# Stage-2 FULL run, arm C recipe (Srimon approved 24 Oct 2026: skip the length-grouping speed test, start the full run).
+# = pilot arm C (many-label expansion 20-150 labels + permutation-consistency, pair_prob 0.25, symmetric KL, weight 0.1; same augmentation,
+#   LR 1e-5 / 3e-5 linear, warmup_ratio 0.02, seed 42, init = S1 final_model), with
+#   * the FULL stage-2 data mix configs/data_stage2_full.yaml (~1.74M rows; E1-level procedural share ~4.9 %; + 3,000 LocalLLaMA typed-decisions
+#     TRAIN rows as in E2 -> results are PARTLY IN-DOMAIN), and
+#   * the FAST settings measured on Kaggle T4 x2: per-device batch 4 x accum 8 x 2 GPUs = 64 rows/step, gradient checkpointing OFF
+#     (speed test T2 2.40 s/step; ablation E1/E1z/E2 = arm C at b4: 2.24-2.37 s/step, peak reserved 10.3-12.1 GB). length_group DISABLED
+#     (built but never run on a GPU).
+#   * num_workers 0: 1.74M rows are ~4.6 GB of Python dicts PER RANK; forked DataLoader workers can duplicate that (copy-on-write) and
+#     exhaust Kaggle's host RAM. Fetching in the main process costs ~0.6 ms/row on the box CPU = ~20 ms per 2.4 s step (<1-2 %).
+# Run with PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True (the notebook sets it).
+# 27,000 steps x 64 = 1,728,000 rows (<= the ~1.74M rows of the recipe => one epoch, each row at most once). Sizing: STAGE2_FULL_JOB_SPEC.md s.4.
+base: stage2_pilot_C.yaml
+data:
+  train_files: [data/stage2_full/train.jsonl]
+  val_files: [calib/stage2_pilot_val.jsonl]     # the pilot's actual val set (= this recipe's own val: same seed and n_val) -> eval_loss comparable
+  many_label:
+    pools_file: data/stage2_full/label_pools.json
+  length_group: {enabled: false}
+train:
+  output_dir: runs/stage2_full_C
+  max_steps: 27000
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 8                # 4 x 8 x 2 GPUs = 64 rows/step (1-GPU fallback doubles accum to 16)
+  gradient_checkpointing: false
+  num_workers: 0
+  save_steps: 500                               # checkpoint every 500 steps (~21 min); resume = newest checkpoint
+  eval_steps: 500                               # val eval_loss (1,850 rows, ~18 s)
+  save_total_limit: 2
+  logging_steps: 50
+  time_budget_hours: 10.4                       # per-session cap; the notebook passes the remaining session time (train.py saves and exits needs_resume)

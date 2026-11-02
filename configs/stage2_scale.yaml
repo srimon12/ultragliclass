@@ -1,0 +1,48 @@
+# Stage 2: scale-up (~2.4M rows). Starts from the stage-1 winner. Multi-session on Kaggle.
+# Changes vs the first draft (stage-1 flip-rate diagnosis, see STAGE2_PLAN.md):
+#   data.many_label   dynamic 20-150-label expansion with hard negatives for taxonomy rows (labels re-drawn every epoch)
+#   data.consistency  paired label-order views + symmetric-KL consistency term (set enabled: false for the ablation)
+#   model.max_num_classes 150 (config hygiene; allocation stays dynamic per batch)
+base: base.yaml
+model:
+  init_from: runs/stage1_ultrabert150m/final_model
+  max_num_classes: 150
+data:
+  train_files: [data/stage2/train.jsonl]
+  val_files: [data/stage2/val.jsonl]
+  max_length: 1024            # decision: keep. 150 short intent labels = ~700-800 tokens, so labels + a 256-token text fit.
+  many_label:
+    enabled: true
+    pools_file: data/stage2/label_pools.json   # written by prepare_data.py next to train.jsonl
+    top_m: 48
+    params:
+      expand_prob: 0.7          # of rows that carry a pool (taxonomy sources); ~12% of all rows end up with >= 20 labels
+      k_min: 20
+      k_max: 150                # log-uniform in [k_min, min(k_max, pool size)]
+      hard_frac: 0.5            # half of the added labels are nearest neighbours / siblings of the gold label
+      dup_sim: 0.80             # neighbours this similar to a gold label are never added (false-negative guard)
+      text_keep_tokens: 256     # labels are trimmed so at least this much of the text survives max_length
+      pair_min_labels: 8
+      pool_overrides:
+        glic-v2: {expand_prob: 0.10, k_min: 12, k_max: 60, hard_frac: 0.2, dup_sim: 0.6}   # noisy natural labels: mild
+  consistency:
+    enabled: true
+    pair_prob: 0.25             # fraction of expanded rows fetched with a second label order (+1 row in that batch)
+    weight: 0.1
+    kind: skl                   # symmetric KL between the per-label softmaxes of the two orders
+  augmentation:               # official GLiClass augmentations, on at stage 2 (defaults from train.py, R1)
+    enabled: true
+    random_label_removal_prob: 0.05
+    random_label_addition_prob: 0.05
+    random_text_addition_prob: 0.05
+    random_add_description_prob: 0.0
+    random_add_synonyms_prob: 0.0
+    random_add_examples_prob: 0.0
+train:
+  output_dir: runs/stage2_ultrabert150m
+  num_epochs: 1
+  encoder_lr: 1.0e-5
+  others_lr: 3.0e-5
+  warmup_ratio: 0.02
+  save_steps: 1000
+  eval_steps: 1000

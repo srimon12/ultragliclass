@@ -1,0 +1,11 @@
+# Pinned to the versions the CPU smoke test passed with (22 Oct 2026).
+# On Kaggle keep the preinstalled CUDA torch; do NOT reinstall torch there.
+transformers==5.20.2      # first release with native UltraBERT (no trust_remote_code)
+gliclass==0.1.21          # = Knowledgator/GLiClass main @ 6a00f80 (16 Oct 2026)
+datasets>=5.1.0
+accelerate>=1.15.0
+pyyaml>=6.0
+scikit-learn>=1.0
+numpy>=2.0
+# optional control baseline (eval.py --backend laya); not needed for training
+# laya==0.4.13

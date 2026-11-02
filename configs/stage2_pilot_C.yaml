@@ -1,0 +1,6 @@
+# Stage-2 PILOT arm C = B + permutation-consistency term (pair_prob 0.25, symmetric KL, weight 0.1).
+base: stage2_pilot_B.yaml
+data:
+  consistency: {enabled: true}
+train:
+  output_dir: runs/stage2_pilot_C

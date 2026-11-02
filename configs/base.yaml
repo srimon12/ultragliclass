@@ -1,0 +1,46 @@
+# Shared settings. Sources for every value are in REFERENCES.md (R-ids in comments).
+model:
+  encoder_model_name: dmis-lab/UltraBERT-150M   # native in transformers>=5.20 (R3)
+  init_from: null              # GLiClass checkpoint from the previous stage (final_model dir)
+  architecture_type: uni-encoder
+  pooler_type: first           # v4-edge config: pooling_strategy first (R6)
+  class_token_pooling: first   # v4-edge config (R6)
+  scorer_type: mlp             # v4-edge config (R6)
+  dropout: 0.3                 # v4-edge config / train.py default (R1, R6)
+  prompt_first: true           # train.py default; v4-edge config (R1, R6)
+  shuffle_labels: true         # option-order randomisation (train.py default, R1)
+  focal_loss_alpha: 0.75       # v4-edge config (R6)
+  focal_loss_gamma: -1         # v4-edge config (R6): alpha weighting only
+  focal_loss_reduction: none
+  contrastive_loss_coef: 0.0
+  problem_type: multi_label_classification   # GLiClass default; supports soft {label: p} targets (R2)
+  max_num_classes: 50
+data:
+  max_length: 1024
+  max_eval_samples: 2000
+  static_shapes: false         # true only for TPU/XLA (fixed shapes)
+  augmentation:
+    enabled: false
+train:
+  precision: fp16              # T4/P100 have no bf16; set bf16 on A100/H100/TPU
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4
+  encoder_lr: 1.0e-5           # UltraBERT-150M best MNLI LR (R3); ~10x below other encoders
+  others_lr: 3.0e-5            # GLiClass keeps heads at ~2.5x the encoder LR (train.py 2e-5 / 5e-5, R1)
+  encoder_weight_decay: 0.1    # UltraBERT fine-tuning recipe (R3)
+  others_weight_decay: 0.01    # train.py default (R1)
+  adam_beta1: 0.9              # UltraBERT recipe (R3)
+  adam_beta2: 0.98             # UltraBERT recipe (R3)
+  adam_epsilon: 1.0e-6         # UltraBERT recipe (R3)
+  max_grad_norm: 1.0
+  lr_scheduler_type: linear    # UltraBERT recipe and train.py default (R1, R3)
+  warmup_ratio: 0.05           # UltraBERT recipe and train.py default (R1, R3)
+  gradient_checkpointing: true
+  save_steps: 500
+  save_total_limit: 2
+  eval_steps: 500
+  logging_steps: 50
+  num_workers: 2
+  time_budget_hours: 11.0      # Kaggle sessions end at 12 h; leave room for save + eval + output upload
+  seed: 42
+  ddp_find_unused_parameters: false   # smoke test: every parameter gets a gradient

@@ -1,0 +1,53 @@
+{
+  "recipe": "/kaggle/working/ultragliclass/configs/data_stage1.yaml",
+  "name": "stage1",
+  "seed": 42,
+  "streaming": false,
+  "train_rows": 410422,
+  "val_rows": 4300,
+  "sources": {
+    "knowledgator/gliclass-v2.0:default": {
+      "train_unique": 300000,
+      "repeat": 1,
+      "train_rows": 300000,
+      "val_rows": 2000,
+      "license": "apache-2.0",
+      "kinds": {
+        "gliclass": 300000
+      }
+    },
+    "knowledgator/gliclass-v3-logic-dataset:default": {
+      "train_unique": 5211,
+      "repeat": 2,
+      "train_rows": 10422,
+      "val_rows": 300,
+      "license": "apache-2.0",
+      "kinds": {
+        "gliclass": 5211
+      }
+    },
+    "tasksource/tasksource-jev-typed-decisions:default": {
+      "train_unique": 100000,
+      "repeat": 1,
+      "train_rows": 100000,
+      "val_rows": 2000,
+      "license": "other (mixed; filtered to license_use == commercial)",
+      "kinds": {
+        "jev-choice": 77587,
+        "jev-noul": 13959,
+        "jev-score": 8454
+      }
+    }
+  },
+  "kinds": {
+    "gliclass": 310422,
+    "jev-choice": 77587,
+    "jev-noul": 13959,
+    "jev-score": 8454
+  },
+  "labels_per_row": {
+    "max": 50,
+    "mean": 6.93
+  },
+  "seconds": 90.9
+}

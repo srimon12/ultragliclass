@@ -1,0 +1,54 @@
+# Stage-2 PILOT arm A = "S1 continued": same data, no many-label expansion, no consistency term.
+# B and C inherit from this file and flip ONLY data.many_label.enabled / data.consistency.enabled, so everything else
+# (init, data files, seed => same base data order, LR, schedule, augmentation, batch, max_steps, label cap) is identical.
+# 1,500 steps x 64 rows = 96,000 rows = 1 epoch of data/stage2_pilot (>= 96,035 rows) on 2 GPUs (8 x 4 accumulation x 2).
+base: base.yaml
+model:
+  init_from: runs/stage1_ultrabert150m/final_model     # the notebook overrides this with INIT_MODEL (S1 kernel output mount)
+  max_num_classes: 150                                  # same for all arms (config hygiene; allocation stays dynamic)
+data:
+  train_files: [data/stage2_pilot/train.jsonl]
+  val_files: [data/stage2_pilot/val.jsonl]              # one val file for all arms: static-expanded rows are seeded in prepare_data
+  max_length: 1024
+  max_eval_samples: 2000
+  many_label:
+    enabled: false                                      # B, C: true
+    pools_file: data/stage2_pilot/label_pools.json
+    top_m: 48
+    params:
+      expand_prob: 0.7
+      k_min: 20
+      k_max: 150
+      hard_frac: 0.5
+      dup_sim: 0.80
+      text_keep_tokens: 256
+      pair_min_labels: 8
+      pool_overrides:
+        glic-v2: {expand_prob: 0.10, k_min: 12, k_max: 60, hard_frac: 0.2, dup_sim: 0.6}
+  consistency:
+    enabled: false                                      # C: true
+    pair_prob: 0.25
+    weight: 0.1
+    kind: skl
+  augmentation:                                         # same in every arm (official GLiClass augmentations, as in stage 2)
+    enabled: true
+    random_label_removal_prob: 0.05
+    random_label_addition_prob: 0.05
+    random_text_addition_prob: 0.05
+    random_add_description_prob: 0.0
+    random_add_synonyms_prob: 0.0
+    random_add_examples_prob: 0.0
+train:
+  output_dir: runs/stage2_pilot_A
+  max_steps: 1500                                       # explicit: identical step count and LR schedule in every arm
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4                        # 8 x 4 x 2 GPUs = 64 rows per step (as S1)
+  encoder_lr: 1.0e-5                                    # = S1
+  others_lr: 3.0e-5                                     # = S1
+  lr_scheduler_type: linear                             # = S1, decays to 0 over the 1,500 steps
+  warmup_ratio: 0.02                                    # 30 steps (S1: 5 % of 6,413); S1 ended at LR 0, so a short re-warm
+  save_steps: 500
+  eval_steps: 500
+  save_total_limit: 2
+  seed: 42
+  time_budget_hours: 2.0                                # per-arm cap (the notebook also passes the remaining session time)

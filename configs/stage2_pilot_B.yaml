@@ -1,0 +1,6 @@
+# Stage-2 PILOT arm B = A + many-label expansion (20-150 labels with hard negatives, taxonomy + mild glic-v2). No consistency term.
+base: stage2_pilot_A.yaml
+data:
+  many_label: {enabled: true}
+train:
+  output_dir: runs/stage2_pilot_B

@@ -1,0 +1,13 @@
+# Stage 1: pilot (~420k rows, 1 epoch). Go/no-go vs the ModernBERT-base control (stage1_control_modernbert.yaml).
+base: base.yaml
+data:
+  train_files: [data/stage1/train.jsonl]
+  val_files: [data/stage1/val.jsonl]
+  max_length: 1024
+train:
+  output_dir: runs/stage1_ultrabert150m
+  num_epochs: 1               # max_steps is derived once: ceil(rows / effective batch 64)
+  per_device_train_batch_size: 8
+  gradient_accumulation_steps: 4   # 8 x 4 x 2 GPUs = 64
+  save_steps: 500
+  eval_steps: 500

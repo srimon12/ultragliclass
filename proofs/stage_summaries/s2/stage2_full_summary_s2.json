@@ -1,0 +1,70 @@
+{
+  "session": 2,
+  "session_hours": 7.478,
+  "arms": [
+    {
+      "arm": "full_C",
+      "out_dir": "runs/stage2_full_C",
+      "state": "complete",
+      "t0_hours": 0.04,
+      "start_step": 15910,
+      "oom": false,
+      "status": {
+        "state": "complete",
+        "global_step": 27000,
+        "max_steps": 27000,
+        "resumed_from": "runs/stage2_full_C/checkpoint-15910",
+        "train_loss": 0.04290478449882528,
+        "session_seconds": 26333.6,
+        "last_checkpoint": "runs/stage2_full_C/checkpoint-27000",
+        "precision": "fp16",
+        "world_size": 2,
+        "final_model": "runs/stage2_full_C/final_model",
+        "final_eval": {
+          "eval_loss": 0.07749475538730621,
+          "eval_runtime": 18.5465,
+          "eval_samples_per_second": 99.749,
+          "eval_steps_per_second": 12.509,
+          "epoch": 0.9979763257838272,
+          "peak_mem_gb": 9.34,
+          "peak_reserved_gb": 9.61
+        }
+      },
+      "end_step": 27000,
+      "eval": {
+        "eval_rc": 0,
+        "avg_macro_f1": 0.6828827758423116,
+        "global_T": 1.6795855547485425,
+        "typed_acc": 0.6155,
+        "typed_by_type": {
+          "choice": 0.63,
+          "noul": 0.7016666666666667,
+          "score": 0.54
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.626,
+          "customer_service": 0.726,
+          "invoice_processing": 0.518,
+          "security_incidents": 0.592
+        },
+        "flip_many_label": {
+          "banking77": 0.246,
+          "clinc150": 0.184,
+          "massive": 0.102,
+          "SetFit/20_newsgroups": 0.164
+        },
+        "NOT_zero_shot": [
+          "massive (HWU64 shares 56/59 intents)",
+          "financial_phrasebank (fin-news sentiment, same 3 labels)",
+          "typed-decisions customer_service + agent_trace_observability (trained on their TRAIN split)"
+        ]
+      },
+      "wall_hours": 7.438
+    }
+  ],
+  "init_model_src": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s1/ultragliclass/runs/stage1_ultrabert150m/final_model",
+  "prev_output": "/kaggle/input/ultragliclass-s2full/ultragliclass",
+  "data_md5": "d82991a305052e585050954f1ac6778f",
+  "procedural_share": 0.0525,
+  "partly_in_domain": true
+}

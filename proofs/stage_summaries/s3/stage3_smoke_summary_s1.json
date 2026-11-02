@@ -1,0 +1,106 @@
+{
+  "mode": "smoke",
+  "session": 1,
+  "session_hours": 1.16,
+  "arms": [
+    {
+      "arm": "s3",
+      "mode": "smoke",
+      "out_dir": "runs/stage3_full",
+      "state": "needs_resume",
+      "t0_hours": 0.058,
+      "start_step": 0,
+      "baseline_longjev": {
+        "rc": 0,
+        "acc": 0.5522041763341067,
+        "ci95": [
+          0.4975600700313934,
+          0.6046539313399778
+        ],
+        "n": 431,
+        "truncated_frac": 0.05568445475638051,
+        "seconds": 132.2
+      },
+      "oom": false,
+      "status": {
+        "state": "needs_resume",
+        "global_step": 150,
+        "max_steps": 956,
+        "resumed_from": null,
+        "train_loss": 0.10691884229580562,
+        "session_seconds": 3637.3,
+        "last_checkpoint": "runs/stage3_full/checkpoint-150",
+        "precision": "fp16",
+        "world_size": 2
+      },
+      "end_step": 150,
+      "speed_mem": {
+        "status": "needs_resume",
+        "step": 150,
+        "heartbeat": {
+          "time": "2026-11-01 09:53:05",
+          "global_step": 150,
+          "logs": {
+            "train_runtime": 3619.4879,
+            "train_samples_per_second": 2.652,
+            "train_steps_per_second": 0.041,
+            "total_flos": 1.2183447250403328e+16,
+            "train_loss": 0.10691884229580562,
+            "epoch": 0.15690376569037656,
+            "peak_mem_gb": 5.17,
+            "peak_reserved_gb": 5.45
+          }
+        },
+        "metric_lines": [
+          "[ugc 09:45:01 rank0/2] mem step=130 peak_alloc_gb=5.17 peak_reserved_gb=5.45",
+          "[ugc 09:45:01 rank1/2] mem step=130 peak_alloc_gb=5.13 peak_reserved_gb=5.34",
+          "{'loss': '0.1066', 'grad_norm': '136.9', 'learning_rate': '1.348e-05', 'cons_loss': '0.04933', 'pairs_since_last_log': 33, 'epoch': '0.136', 'sec_per_step': '23.96', 'eta_hours': '5.5', 'peak_mem_gb': '5.17', 'peak_reserved_gb': '5.45'}",
+          "[ugc 09:49:01 rank0/2] mem step=140 peak_alloc_gb=5.17 peak_reserved_gb=5.45",
+          "[ugc 09:49:01 rank1/2] mem step=140 peak_alloc_gb=5.13 peak_reserved_gb=5.38",
+          "{'loss': '0.1062', 'grad_norm': '73.95', 'learning_rate': '1.332e-05', 'cons_loss': '0.3222', 'pairs_since_last_log': 19, 'epoch': '0.1464', 'sec_per_step': '23.98', 'eta_hours': '5.44', 'peak_mem_gb': '5.17', 'peak_reserved_gb': '5.45'}",
+          "[ugc 09:53:02 rank0/2] mem step=150 peak_alloc_gb=5.17 peak_reserved_gb=5.45",
+          "[ugc 09:53:02 rank1/2] mem step=150 peak_alloc_gb=5.13 peak_reserved_gb=5.38",
+          "{'loss': '0.09086', 'grad_norm': '91.18', 'learning_rate': '1.316e-05', 'cons_loss': '0.243', 'pairs_since_last_log': 17, 'epoch': '0.1569', 'sec_per_step': '24.14', 'eta_hours': '5.41', 'peak_mem_gb': '5.17', 'peak_reserved_gb': '5.45'}",
+          "[ugc 09:53:05 rank1/2] mem step=150 peak_alloc_gb=5.13 peak_reserved_gb=5.38",
+          "[ugc 09:53:05 rank0/2] mem step=150 peak_alloc_gb=5.17 peak_reserved_gb=5.45",
+          "{'train_runtime': '3619', 'train_samples_per_second': '2.652', 'train_steps_per_second': '0.041', 'train_loss': '0.1069', 'epoch': '0.1569', 'peak_mem_gb': '5.17', 'peak_reserved_gb': '5.45'}"
+        ],
+        "oom": false,
+        "small_ctx_retry": false
+      },
+      "longjev_mid": {
+        "rc": 0,
+        "acc": 0.5870069605568445,
+        "ci95": [
+          0.5336286622686648,
+          0.6363688973063972
+        ],
+        "n": 431,
+        "truncated_frac": 0.05568445475638051,
+        "seconds": 137.4
+      },
+      "longjev_mid_compare": {
+        "paired_n": 431,
+        "base_acc": 0.5522041763341067,
+        "cand_acc": 0.5870069605568445,
+        "delta": 0.03480278422273782,
+        "delta_ci95_cluster": [
+          -0.008753697068795536,
+          0.0746615875265769
+        ],
+        "mcnemar_exact_p": 0.07692583360960925,
+        "wins": 39,
+        "losses": 24,
+        "bar": "+0.03 accuracy",
+        "bar_point_estimate_met": true,
+        "bar_ci_lower_above_zero": false
+      },
+      "wall_hours": 1.102
+    }
+  ],
+  "init_model_src": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s2full/ultragliclass/runs/stage2_full_C/final_model",
+  "prev_output": null,
+  "s2_data": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s2full/ultragliclass/data/stage2_full",
+  "data_md5": "d35eb55c3fc957d1c951aa6ab57c1028",
+  "partly_in_domain": true
+}

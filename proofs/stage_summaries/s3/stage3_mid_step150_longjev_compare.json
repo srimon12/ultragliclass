@@ -1,0 +1,16 @@
+{
+ "paired_n": 431,
+ "base_acc": 0.5522041763341067,
+ "cand_acc": 0.5870069605568445,
+ "delta": 0.03480278422273782,
+ "delta_ci95_cluster": [
+  -0.008753697068795536,
+  0.0746615875265769
+ ],
+ "mcnemar_exact_p": 0.07692583360960925,
+ "wins": 39,
+ "losses": 24,
+ "bar": "+0.03 accuracy",
+ "bar_point_estimate_met": true,
+ "bar_ci_lower_above_zero": false
+}

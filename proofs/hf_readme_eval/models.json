@@ -1,0 +1,27 @@
+{
+ "ultragliclass-v0.1": {
+  "path": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s3full/ultragliclass/runs/stage3_full/final_model",
+  "add_prefix_space": false,
+  "batch": 16,
+  "longjev_batch": 2,
+  "encoder": "dmis-lab/UltraBERT-150M"
+ },
+ "gliclass-modern-base-v3.0": {
+  "path": "/root/.cache/huggingface/hub/models--knowledgator--gliclass-modern-base-v3.0/snapshots/ac369222ca4375ca66ebaf7fb5220f223514c035",
+  "add_prefix_space": true,
+  "batch": 16,
+  "longjev_batch": 2,
+  "hf_id": "knowledgator/gliclass-modern-base-v3.0",
+  "hf_sha": "ac369222ca4375ca66ebaf7fb5220f223514c035",
+  "encoder": "answerdotai/ModernBERT-base"
+ },
+ "gliclass-base-v3.0": {
+  "path": "/root/.cache/huggingface/hub/models--knowledgator--gliclass-base-v3.0/snapshots/77a70e6cd52e602ed18184ef37d18bdd3741e3d5",
+  "add_prefix_space": true,
+  "batch": 16,
+  "longjev_batch": 1,
+  "hf_id": "knowledgator/gliclass-base-v3.0",
+  "hf_sha": "77a70e6cd52e602ed18184ef37d18bdd3741e3d5",
+  "encoder": "microsoft/deberta-v3-base"
+ }
+}

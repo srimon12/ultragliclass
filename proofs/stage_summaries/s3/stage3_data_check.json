@@ -1,0 +1,14 @@
+{
+ "mode": "full",
+ "train_rows": 61184,
+ "long_jev_rows": 21184,
+ "replay_rows": 40000,
+ "train_in_eval_slice": 0,
+ "train_in_val": 0,
+ "md5": "d35eb55c3fc957d1c951aa6ab57c1028",
+ "steps_planned": 956,
+ "licenses": {
+  "tasksource/tasksource-jev-typed-decisions:full": "other (filtered to license_use == commercial, share-alike/copyleft rows removed)",
+  "replay/stage2_full:default": "as stage 2 (see STAGE2_FULL_JOB_SPEC.md s.2)"
+ }
+}

@@ -1,0 +1,51 @@
+# Stage 3 (v2, 25 Oct 2026): long-context (8,192 tokens) + many-option (<= 256 labels) finetune of the stage-2 FULL arm C model.
+# init = stage-2 full_C final_model. The Kaggle notebook overrides model.init_from with its local copy of
+#   /kaggle/input/**/runs/stage2_full_C/final_model (output of kernel srimondanguria/ultragliclass-s2full, version 4);
+#   on the box: /workspace/kaggle/ultragliclass/S2full/session2/output/ultragliclass/runs/stage2_full_C/final_model.
+# Memory: batch 1 x 8,192 with gradient checkpointing ON (EST fit, NOT measured; the S2 fast settings - ckpt off - peaked at
+#   10.45 GB with only ~4K tokens per micro-batch). A 10-min Kaggle smoke (STAGE3_JOB_SPEC.md s.5) must pass before the full run.
+# Arm C kept: many-label expansion (S2 pools, k up to 250) + permutation consistency (pair_prob 0.25, sym-KL, 0.1). Pairs need
+#   >= 8 labels, so they land almost only on short replay / many-label rows: cost EST +3-5 %, not 25 %.
+base: stage2_pilot_C.yaml
+model:
+  init_from: runs/stage2_full_C/final_model
+  max_num_classes: 256
+data:
+  train_files: [data/stage3/train.jsonl]
+  val_files: [data/stage3/val.jsonl, calib/stage2_pilot_val.jsonl]   # 300 long Jev (carved) + the S2/pilot val (1,850 rows)
+  max_eval_samples: 2150
+  max_length: 8192
+  many_label:
+    enabled: true
+    pools_file: data/stage3/label_pools.json        # copied from data/stage2_full/label_pools.json by prepare_data
+    params:
+      k_max: 250                                    # S2: 150; stage 3 exercises up to 256 labels (CLINC-150 is a bar)
+  consistency: {enabled: true, pair_prob: 0.25, weight: 0.1, kind: skl}
+  length_group: {enabled: false}                    # built, never GPU-tested; would help here (short replay vs 4K Jev) -> v0.2
+  augmentation:
+    enabled: true
+    random_label_removal_prob: 0.05                 # = stage 2
+    random_label_addition_prob: 0.05                # = stage 2 (the 22 Oct draft had 0.5: too far from S2 for soft-target Jev rows)
+    random_text_addition_prob: 0.15                 # S2 0.05 -> 0.15: distractor text on replay rows = longer contexts
+    random_add_description_prob: 0.0
+    random_add_synonyms_prob: 0.0
+    random_add_examples_prob: 0.0
+train:
+  output_dir: runs/stage3_full
+  max_steps: 956               # = floor(61,184 rows / 64), measured by the box dry run 25 Oct (1 epoch)
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 32                   # 1 x 32 x 2 GPUs = 64 rows/step (= S2); 1-GPU fallback: accum 64
+  per_device_eval_batch_size: 1
+  gradient_checkpointing: true
+  encoder_lr: 5.0e-6                                # half of S2 (forgetting guard: suite regression bar <= 0.01)
+  others_lr: 1.5e-5
+  warmup_ratio: 0.03
+  lr_scheduler_type: linear
+  num_workers: 0
+  save_steps: 100                                   # ~25 min at the EST 15 s/step
+  eval_steps: 200
+  save_total_limit: 2
+  logging_steps: 10
+  max_oom_skips: 0
+  time_budget_hours: 10.4                            # notebook overrides per session: smoke 1.0 h (current account), full = rest of session (account #2)
+  seed: 42

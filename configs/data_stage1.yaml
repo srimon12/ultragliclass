@@ -1,0 +1,30 @@
+# Stage 1 pilot mix. Target ~420k train rows: 72% gliclass-v2.0 / 4% logic (x2) / 24% jev typed decisions.
+name: stage1
+out_dir: data/stage1
+seed: 42
+max_options: 50          # label prompt must fit max_length 1024
+max_chars: 6000          # ~1.5K tokens; longer text is truncated by the tokenizer anyway
+sources:
+  - id: knowledgator/gliclass-v2.0
+    format: gliclass
+    split: train
+    n_train: 300000
+    n_val: 2000
+    license: apache-2.0
+  - id: knowledgator/gliclass-v3-logic-dataset
+    format: gliclass
+    split: train
+    n_train: all          # 7,776 rows minus 300 val
+    n_val: 300
+    repeat: 2             # small but high-value (1-50 true / 1-50 false labels)
+    license: apache-2.0
+  - id: tasksource/tasksource-jev-typed-decisions
+    config: default
+    format: jev
+    split: train
+    val_split: validation
+    n_train: 100000
+    n_val: 2000
+    license_use: [commercial]     # 600,555 of 999,832 train rows (HF dataset-viewer statistics)
+    max_state_chars: 4000         # long states are kept for stage 3
+    license: "other (mixed; filtered to license_use == commercial)"

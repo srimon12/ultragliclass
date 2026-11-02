@@ -1,0 +1,24 @@
+{
+ "train_rows": 1731505,
+ "need_rows": 1728000,
+ "procedural_share": 0.0525,
+ "procedural_rows": 90923,
+ "semantic_rows": {
+  "LocalLLaMA/typed-decisions:customer_service": 1500,
+  "LocalLLaMA/typed-decisions:agent_trace_observability": 1500
+ },
+ "train_rows_text_in_val": 0,
+ "md5": "d82991a305052e585050954f1ac6778f",
+ "licenses": {
+  "knowledgator/gliclass-v2.0:default": "apache-2.0",
+  "knowledgator/gliclass-v3-logic-dataset:default": "apache-2.0",
+  "tasksource/tasksource-jev-typed-decisions:default": "other (filtered to license_use == commercial)",
+  "LocalLLaMA/typed-decisions:customer_service": "apache-2.0",
+  "LocalLLaMA/typed-decisions:agent_trace_observability": "apache-2.0",
+  "DeepPavlov/hwu64:default": "cc-by-4.0",
+  "coastalcph/lex_glue:ledgar": "cc-by-4.0",
+  "zeroshot/twitter-financial-news-topic:default": "mit",
+  "google-research-datasets/go_emotions:simplified": "apache-2.0",
+  "zeroshot/twitter-financial-news-sentiment:default": "mit"
+ }
+}

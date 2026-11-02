@@ -1,0 +1,11 @@
+# Stage-2 ABLATION arm C0 = pilot arm C config (pilot C unchanged (OPTIONAL noise/reproducibility rerun; same data recipe as pilot)).
+# Everything but the data files and output_dir is inherited from stage2_pilot_C.yaml (many_label on, consistency on, seed 42, 1,500 steps,
+# S1 init). Data recipe: configs/data_stage2_abl_C0.yaml.
+base: stage2_pilot_C.yaml
+data:
+  train_files: [data/stage2_pilot/train.jsonl]
+  val_files: [data/stage2_pilot/val.jsonl]
+  many_label:
+    pools_file: data/stage2_pilot/label_pools.json
+train:
+  output_dir: runs/stage2_abl_C0

@@ -1,0 +1,61 @@
+{
+  "session": 1,
+  "session_hours": 10.718,
+  "arms": [
+    {
+      "arm": "full_C",
+      "out_dir": "runs/stage2_full_C",
+      "state": "needs_resume",
+      "t0_hours": 0.124,
+      "start_step": 0,
+      "oom": false,
+      "status": {
+        "state": "needs_resume",
+        "global_step": 15910,
+        "max_steps": 27000,
+        "resumed_from": null,
+        "train_loss": 0.05243262413381069,
+        "session_seconds": 37731.0,
+        "last_checkpoint": "runs/stage2_full_C/checkpoint-15910",
+        "precision": "fp16",
+        "world_size": 2
+      },
+      "end_step": 15910,
+      "eval": {
+        "eval_rc": 0,
+        "avg_macro_f1": 0.6729373587675377,
+        "global_T": 1.5942604142479069,
+        "typed_acc": 0.5365,
+        "typed_by_type": {
+          "choice": 0.6,
+          "noul": 0.515,
+          "score": 0.505
+        },
+        "typed_by_workflow": {
+          "agent_trace_observability": 0.644,
+          "customer_service": 0.6,
+          "invoice_processing": 0.34,
+          "security_incidents": 0.562
+        },
+        "flip_many_label": {
+          "banking77": 0.27,
+          "clinc150": 0.188,
+          "massive": 0.128,
+          "SetFit/20_newsgroups": 0.138
+        },
+        "NOT_zero_shot": [
+          "massive (HWU64 shares 56/59 intents)",
+          "financial_phrasebank (fin-news sentiment, same 3 labels)",
+          "typed-decisions customer_service + agent_trace_observability (trained on their TRAIN split)"
+        ],
+        "checkpoint": "runs/stage2_full_C/checkpoint-15910"
+      },
+      "wall_hours": 10.594
+    }
+  ],
+  "init_model_src": "/kaggle/input/notebooks/srimondanguria/ultragliclass-s1/ultragliclass/runs/stage1_ultrabert150m/final_model",
+  "prev_output": null,
+  "data_md5": "d82991a305052e585050954f1ac6778f",
+  "procedural_share": 0.0525,
+  "partly_in_domain": true
+}

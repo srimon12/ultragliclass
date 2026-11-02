@@ -1,0 +1,18 @@
+# Stage 0: pipeline smoke test on a tiny subset (CPU here, 1 short Kaggle session there).
+base: base.yaml
+data:
+  train_files: [data/stage0/train.jsonl]
+  val_files: [data/stage0/val.jsonl]
+  max_length: 256
+  max_eval_samples: 32
+train:
+  output_dir: runs/stage0
+  max_steps: 30
+  per_device_train_batch_size: 2
+  gradient_accumulation_steps: 2
+  save_steps: 10
+  eval_steps: 10
+  logging_steps: 5
+  num_workers: 0
+  gradient_checkpointing: false
+  time_budget_hours: 1.0

@@ -1,0 +1,11 @@
+# Stage-2 ABLATION arm E2 = pilot arm C config (E1 + 3,000 semantic prose-option typed rows (LocalLLaMA/typed-decisions TRAIN, 2 workflows)).
+# Everything but the data files and output_dir is inherited from stage2_pilot_C.yaml (many_label on, consistency on, seed 42, 1,500 steps,
+# S1 init). Data recipe: configs/data_stage2_abl_E2.yaml.
+base: stage2_pilot_C.yaml
+data:
+  train_files: [data/stage2_abl_E2/train.jsonl]
+  val_files: [calib/stage2_pilot_val.jsonl]
+  many_label:
+    pools_file: data/stage2_abl_E2/label_pools.json
+train:
+  output_dir: runs/stage2_abl_E2

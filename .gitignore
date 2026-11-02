@@ -1,0 +1,44 @@
+# Python / envs
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+ugc-venv/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+
+# Data (rebuilt from the Hub; never committed - licences + size)
+data/*
+!data/README.md
+calib/*.jsonl
+*.parquet
+*.arrow
+
+# Training / eval outputs and weights (go to a Release or the HF Hub, not git)
+runs/
+results/
+smoke_logs/
+logs/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+checkpoint-*/
+final_model/
+
+# Kaggle credentials / bundles
+kaggle.json
+.kaggle/
+*.zip
+code_bundle/
+
+# Misc
+.env
+.DS_Store
+.ipynb_checkpoints/

@@ -1,0 +1,1118 @@
+[
+ {
+  "tier": 0,
+  "kind": "calib",
+  "model": "ultragliclass-v0.1",
+  "id": "ultragliclass-v0.1__calib"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/CR",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__SetFit__CR__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst2",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst2__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst5",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst5__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__stanfordnlp__imdb__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__SetFit__20_newsgroups__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/enron_spam",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__SetFit__enron_spam__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "massive",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__massive__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "banking77",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__banking77__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "financial_phrasebank",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__financial_phrasebank__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "ag_news",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__ag_news__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "dair-ai/emotion",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__dair-ai__emotion__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__MoritzLaurer__cap_sotu__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "rotten_tomatoes",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__rotten_tomatoes__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "snips",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__snips__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "clinc150",
+  "perm": 0,
+  "id": "ultragliclass-v0.1__cls__clinc150__p0"
+ },
+ {
+  "tier": 2,
+  "kind": "longjev",
+  "model": "ultragliclass-v0.1",
+  "id": "ultragliclass-v0.1__longjev"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/CR",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__SetFit__CR__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst2",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst2__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst5",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst5__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__stanfordnlp__imdb__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__SetFit__20_newsgroups__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/enron_spam",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__SetFit__enron_spam__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "massive",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__massive__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "banking77",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__banking77__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "financial_phrasebank",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__financial_phrasebank__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "ag_news",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__ag_news__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "dair-ai/emotion",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__dair-ai__emotion__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__MoritzLaurer__cap_sotu__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "rotten_tomatoes",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__rotten_tomatoes__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "snips",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__snips__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "clinc150",
+  "perm": 1,
+  "id": "ultragliclass-v0.1__cls__clinc150__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/CR",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__SetFit__CR__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst2",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst2__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/sst5",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__SetFit__sst5__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__stanfordnlp__imdb__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__SetFit__20_newsgroups__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "SetFit/enron_spam",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__SetFit__enron_spam__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "massive",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__massive__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "banking77",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__banking77__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "financial_phrasebank",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__financial_phrasebank__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "ag_news",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__ag_news__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "dair-ai/emotion",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__dair-ai__emotion__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__MoritzLaurer__cap_sotu__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "rotten_tomatoes",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__rotten_tomatoes__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "snips",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__snips__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "ultragliclass-v0.1",
+  "dataset": "clinc150",
+  "perm": 2,
+  "id": "ultragliclass-v0.1__cls__clinc150__p2"
+ },
+ {
+  "tier": 0,
+  "kind": "calib",
+  "model": "gliclass-modern-base-v3.0",
+  "id": "gliclass-modern-base-v3.0__calib"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__CR__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst2__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst5__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__stanfordnlp__imdb__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__20_newsgroups__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__enron_spam__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "massive",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__massive__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "banking77",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__banking77__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__financial_phrasebank__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__ag_news__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__dair-ai__emotion__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__MoritzLaurer__cap_sotu__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__rotten_tomatoes__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "snips",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__snips__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 0,
+  "id": "gliclass-modern-base-v3.0__cls__clinc150__p0"
+ },
+ {
+  "tier": 2,
+  "kind": "longjev",
+  "model": "gliclass-modern-base-v3.0",
+  "id": "gliclass-modern-base-v3.0__longjev"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__CR__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst2__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst5__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__stanfordnlp__imdb__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__20_newsgroups__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__enron_spam__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "massive",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__massive__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "banking77",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__banking77__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__financial_phrasebank__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__ag_news__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__dair-ai__emotion__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__MoritzLaurer__cap_sotu__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__rotten_tomatoes__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "snips",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__snips__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 1,
+  "id": "gliclass-modern-base-v3.0__cls__clinc150__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__CR__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst2__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__sst5__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__stanfordnlp__imdb__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__20_newsgroups__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__SetFit__enron_spam__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "massive",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__massive__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "banking77",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__banking77__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__financial_phrasebank__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__ag_news__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__dair-ai__emotion__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__MoritzLaurer__cap_sotu__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__rotten_tomatoes__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "snips",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__snips__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-modern-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 2,
+  "id": "gliclass-modern-base-v3.0__cls__clinc150__p2"
+ },
+ {
+  "tier": 0,
+  "kind": "calib",
+  "model": "gliclass-base-v3.0",
+  "id": "gliclass-base-v3.0__calib"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__SetFit__CR__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst2__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst5__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__stanfordnlp__imdb__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__SetFit__20_newsgroups__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__SetFit__enron_spam__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "massive",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__massive__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "banking77",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__banking77__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__financial_phrasebank__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__ag_news__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__dair-ai__emotion__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__MoritzLaurer__cap_sotu__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__rotten_tomatoes__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "snips",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__snips__p0"
+ },
+ {
+  "tier": 1,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 0,
+  "id": "gliclass-base-v3.0__cls__clinc150__p0"
+ },
+ {
+  "tier": 2,
+  "kind": "longjev",
+  "model": "gliclass-base-v3.0",
+  "id": "gliclass-base-v3.0__longjev"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__SetFit__CR__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst2__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst5__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__stanfordnlp__imdb__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__SetFit__20_newsgroups__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__SetFit__enron_spam__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "massive",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__massive__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "banking77",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__banking77__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__financial_phrasebank__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__ag_news__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__dair-ai__emotion__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__MoritzLaurer__cap_sotu__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__rotten_tomatoes__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "snips",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__snips__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 1,
+  "id": "gliclass-base-v3.0__cls__clinc150__p1"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/CR",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__SetFit__CR__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst2",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst2__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/sst5",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__SetFit__sst5__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "stanfordnlp/imdb",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__stanfordnlp__imdb__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/20_newsgroups",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__SetFit__20_newsgroups__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "SetFit/enron_spam",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__SetFit__enron_spam__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "massive",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__massive__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "banking77",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__banking77__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "financial_phrasebank",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__financial_phrasebank__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "ag_news",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__ag_news__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "dair-ai/emotion",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__dair-ai__emotion__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "MoritzLaurer/cap_sotu",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__MoritzLaurer__cap_sotu__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "rotten_tomatoes",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__rotten_tomatoes__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "snips",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__snips__p2"
+ },
+ {
+  "tier": 3,
+  "kind": "cls",
+  "model": "gliclass-base-v3.0",
+  "dataset": "clinc150",
+  "perm": 2,
+  "id": "gliclass-base-v3.0__cls__clinc150__p2"
+ }
+]

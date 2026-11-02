@@ -1,0 +1,11 @@
+# Stage 1 control: identical recipe, ModernBERT-base backbone (what gliclass-modern-base-v3.0 uses).
+base: stage1_pilot.yaml
+model:
+  encoder_model_name: answerdotai/ModernBERT-base
+train:
+  output_dir: runs/stage1_control_modernbert_base
+  encoder_lr: 2.0e-5          # GLiClass train.py default encoder LR (R1); ModernBERT prefers higher LRs (R3 note)
+  others_lr: 5.0e-5           # GLiClass train.py default (R1)
+  encoder_weight_decay: 0.01  # GLiClass default (R1)
+  adam_beta2: 0.999
+  adam_epsilon: 1.0e-8

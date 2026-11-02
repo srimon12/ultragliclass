@@ -1,0 +1,6 @@
+# CPU smoke of the length-grouped path (6 steps; per-device batch 2, accum 2). Same as stage2_smoke + data.length_group.
+base: stage2_smoke.yaml
+data:
+  length_group: {enabled: true, mega_batch_mult: 8, loss_norm: true}
+train:
+  output_dir: runs/stage2_smoke_lg

@@ -1,0 +1,11 @@
+# Stage 0 on Kaggle: ~10k rows streamed (no full downloads), same mix proportions as stage 1.
+name: stage0k
+out_dir: data/stage0k
+seed: 42
+max_options: 50
+max_chars: 6000
+sources:
+  - {id: knowledgator/gliclass-v2.0, format: gliclass, split: train, n_train: 7200, n_val: 300, license: apache-2.0, shuffle_buffer: 10000}
+  - {id: knowledgator/gliclass-v3-logic-dataset, format: gliclass, split: train, n_train: 400, n_val: 50, license: apache-2.0}
+  - {id: tasksource/tasksource-jev-typed-decisions, config: default, format: jev, split: train, val_split: validation,
+     n_train: 2400, n_val: 150, license_use: [commercial], max_state_chars: 4000, license: "other (filtered to commercial)", shuffle_buffer: 10000}

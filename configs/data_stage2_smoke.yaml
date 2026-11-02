@@ -1,0 +1,180 @@
+# CPU smoke recipe for the stage-2 taxonomy paths (generated from data_stage2.yaml; ~12k rows)
+name: stage2_smoke
+out_dir: data/stage2_smoke
+seed: 43
+max_options: 50
+max_chars: 6000
+max_length: 1024
+many_label:
+  k_min: 20
+  k_max: 150
+  val_expand_frac: 0.5
+sources:
+- id: knowledgator/gliclass-v2.0
+  format: gliclass
+  split: train
+  n_train: 1500
+  n_val: 40
+  license: apache-2.0
+  pool: glic-v2
+  pool_max_labels: 20000
+  pool_min_count: 5
+  repeat: 1
+  max_scan: 6000
+- id: knowledgator/gliclass-v3-logic-dataset
+  format: gliclass
+  split: train
+  n_train: 300
+  n_val: 40
+  repeat: 1
+  license: apache-2.0
+  max_scan: 6000
+- id: DeepPavlov/hwu64
+  format: taxonomy
+  pool: intents
+  split: train
+  val_split: test
+  n_train: 1500
+  n_val: 40
+  repeat: 1
+  text_col: utterance
+  label_col: label
+  humanize: true
+  names:
+    from: dataset
+    id: DeepPavlov/hwu64
+    config: intents
+    split: intents
+    col: name
+  license: cc-by-4.0
+  license_note: verified in github.com/xliuhw/NLU-Evaluation-Data README
+  eval_overlap: none of the 14 eval sets (clinc150/banking77/massive/snips are different corpora)
+  max_scan: 6000
+- id: Bitext/Bitext-customer-support-llm-chatbot-training-dataset
+  format: taxonomy
+  pool: intents
+  split: train
+  n_train: 1500
+  n_val: 40
+  text_col: instruction
+  label_col: intent
+  license: cdla-sharing-1.0
+  license_note: CDLA-Sharing-1.0 (permissive; sharing obligation applies to the data itself). {{placeholder}} tokens kept.
+  eval_overlap: none
+  repeat: 1
+  max_scan: 6000
+- id: coastalcph/lex_glue
+  config: ledgar
+  format: taxonomy
+  pool: legal-clauses
+  split: train
+  val_split: validation
+  n_train: 1500
+  n_val: 40
+  text_col: text
+  label_col: label
+  names:
+    from: features
+  max_chars: 3000
+  license: cc-by-4.0
+  license_note: LEDGAR (Tuggener et al. 2020) via LexGLUE; CC-BY-4.0 per HF card
+  eval_overlap: none
+  repeat: 1
+  max_scan: 6000
+- id: DeveloperOats/DBPedia_Classes
+  format: taxonomy
+  pool: dbpedia
+  split: train
+  val_split: validation
+  n_train: 1500
+  n_val: 40
+  text_col: text
+  label_col: l3
+  group_col: l2
+  max_chars: 2500
+  license: cc0-1.0
+  license_note: 'HF card says CC0; the Wikipedia abstracts upstream are CC-BY-SA-3.0 (share-alike). Amber: confirm with counsel.'
+  eval_overlap: none (dbpedia-14 is not in the eval suite)
+  repeat: 1
+  max_scan: 6000
+- id: zeroshot/twitter-financial-news-topic
+  format: taxonomy
+  pool: fin-topics
+  split: train
+  val_split: validation
+  n_train: 1500
+  n_val: 40
+  repeat: 1
+  text_col: text
+  label_col: label
+  humanize: false
+  names:
+    list:
+    - analyst update
+    - fed / central banks
+    - company / product news
+    - treasuries / corporate debt
+    - dividend
+    - earnings
+    - energy / oil
+    - financials
+    - currencies
+    - general news / opinion
+    - gold / metals / materials
+    - ipo
+    - legal / regulation
+    - m&a / investments
+    - macro
+    - markets
+    - politics
+    - personnel change
+    - stock commentary
+    - stock movement
+  license: mit
+  license_note: MIT per HF card; tweets (platform terms apply). Amber for redistribution of the text.
+  eval_overlap: none (different task than financial_phrasebank)
+  max_scan: 6000
+- id: google-research-datasets/go_emotions
+  config: simplified
+  format: taxonomy
+  pool: emotions
+  split: train
+  val_split: validation
+  n_train: 1500
+  n_val: 40
+  text_col: text
+  label_col: labels
+  names:
+    from: features
+  license: apache-2.0
+  eval_overlap: overlaps the emotion eval set in task type only
+  repeat: 1
+  max_scan: 6000
+- id: zeroshot/twitter-financial-news-sentiment
+  format: taxonomy
+  split: train
+  val_split: validation
+  n_train: 1500
+  n_val: 40
+  repeat: 1
+  text_col: text
+  label_col: label
+  names:
+    list:
+    - bearish
+    - bullish
+    - neutral
+  schemes:
+  - bearish: negative
+    neutral: neutral
+    bullish: positive
+  - bearish: bearish
+    neutral: neutral
+    bullish: bullish
+  - bearish: negative for the stock
+    neutral: no clear impact
+    bullish: positive for the stock
+  license: mit
+  license_note: MIT per HF card; tweets. Training here is the only licensed route to the financial_phrasebank gap.
+  eval_overlap: none; financial_phrasebank is CC-BY-NC-SA-3.0 and is NOT used for training
+  max_scan: 6000

@@ -1,0 +1,6 @@
+# Control for the grouping A/B: identical to stage2_fast_C (b4 x accum 8, ckpt off) but with RANDOM batches, i.e. the pilot sampler.
+base: stage2_fast_C.yaml
+data:
+  length_group: {enabled: false}
+train:
+  output_dir: runs/stage2_fast_C_nogroup

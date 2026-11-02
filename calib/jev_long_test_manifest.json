@@ -1,0 +1,58 @@
+{
+ "split": [
+  "test",
+  "validation"
+ ],
+ "split_rows": 432,
+ "min_state_chars": 6000,
+ "kept": 431,
+ "dropped": {
+  "gold_tie": 1
+ },
+ "by_kind": {
+  "choice": 390,
+  "noul": 28,
+  "score": 13
+ },
+ "by_split": {
+  "test": 177,
+  "validation": 254
+ },
+ "by_license_use": {
+  "commercial": 324,
+  "unspecified": 83,
+  "non-commercial": 24
+ },
+ "distinct_groups": 344,
+ "distinct_states": 347,
+ "n_options": {
+  "2": 149,
+  "3": 139,
+  "4": 53,
+  "13": 19,
+  "5": 13,
+  "8": 8,
+  "19": 8,
+  "10": 8,
+  "7": 8,
+  "79": 4
+ },
+ "top_sources": {
+  "quality": 52,
+  "evidence-inference": 47,
+  "procedural-typed-decisions/record_eligibility": 46,
+  "qasper/yesno": 38,
+  "wice": 24,
+  "tab/identifier": 23,
+  "lex_glue/scotus": 21,
+  "websrc/yesno": 21,
+  "procedural-typed-decisions/needle_retrieval": 20,
+  "contract-nli/contractnli_b/full": 17,
+  "websrc/element": 16,
+  "cuad/answerability": 15,
+  "wikimedqa/medwiki": 8,
+  "missing-item-prediction/contrastive": 8,
+  "seahorse_summarization_evaluation": 8
+ },
+ "leak_check_train_files": []
+}
